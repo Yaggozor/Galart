@@ -6,8 +6,38 @@
 <body style="height: auto;">
 
     <% include ../componentes/navegacao %>
-    <section style="min-height: 500px;">
-        naruto2
+    
+    <%
+    /* array provisório para teste */
+    let produtos = new Array();
+    produtos[0] = ["produto0", "url/produto0", "preco produto0", "descricao do produto0"]
+    produtos[1] = ["produto1", "url/produto1", "preco produto1", "descricao do produto1"]
+    produtos[2] = ["produto2", "url/produto2", "preco produto2", "descricao do produto2"]
+    produtos[3] = ["produto3", "url/produto3", "preco produto3", "descricao do produto3"]
+    produtos[4] = ["produto4", "url/produto4", "preco produto4", "descricao do produto4"]
+    %>
+    <section class="container" style="margin-top: 50px; min-height: 500px;">
+        
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Imagem</th>
+                    <th scope="col">Preço</th>
+                    <th scope="col">Descrição</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for(let l=0; l<produtos.length; l++){ %>
+                <tr>
+                    <% for(let c=0; c<4; c++){ %>
+                    <td><%= produtos[l][c] %></td>
+                    <% } %>
+                </tr>
+                <% } %>
+            </tbody>
+        </table>
+
     </section>
 
     <% include ../componentes/footer %>
