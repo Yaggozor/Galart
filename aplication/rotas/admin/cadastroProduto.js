@@ -4,4 +4,8 @@ module.exports = (app)=>{
         app.aplication.controller.admin.cadastroProduto.index(app, req, res);
     });
 
+    app.post("/admin/cadastroProduto", (req, res)=>{
+        app.aplication.controller.admin.cadastroProduto.inserindoProduto(app, req, res);
+    });
+
 }

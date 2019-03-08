@@ -9,7 +9,13 @@ app.set('views','aplication/views');
 
 app.use(bodyparser.urlencoded({ extended : true }));
 
-consign().include('aplication/rotas').then('aplication/controller').then('aplication/model').into(app);
+consign()
+    .include('aplication/rotas')
+    .then('aplication/controller')
+    .then('aplication/model')
+    .then("dbConfig/database.js")
+    .into(app);
+
 app.listen(3000,()=>{
     console.log('SOCORRO FUDEU')
 });
