@@ -13,7 +13,9 @@
             <thead class="thead-dark">
                 <tr>
                     <th scope="col">Nome</th>
-                    <th scope="col">Imagem</th>
+                    <th scope="col">Tipo</th>
+                    <th scope="col">Foto</th>
+                    <th scope="col">Tamanho</th>
                     <th scope="col">Preço</th>
                     <th scope="col">Descrição</th>
                     <th></th>
@@ -22,9 +24,14 @@
             <tbody>
                 <% for(let l=0; l<data.length; l++){ %>
                 <tr>
-                    <% for(let c=0; c<4; c++){ %>
+                    
                     <td><%= data[l].nome %></td>
-                    <% } %>
+                    <td><%= data[l].tipo %></td>
+                    <td><%= data[l].foto %></td>
+                    <td><%= data[l].tamanho %></td>
+                    <td><%= data[l].preco %></td>
+                    <td><%= data[l].descricao %></td>
+                    
                     <td>
                         <button class="btn btn-success">Editar</button>
                         <button class="btn btn-danger">Excluir</button>
