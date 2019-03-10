@@ -33,7 +33,6 @@ ProdutoDAO.prototype.mostrarProduto = function(data, res){
 ProdutoDAO.prototype.atualizarProduto = function (data) {
     this._conexao.open(function (err, mongoclient) {
         mongoclient.collection("produtos", function (err, collection) {
-            console.log(data);
             collection.replaceOne(
                 { _id: ObjectID(data._id) },
                 {
@@ -45,6 +44,19 @@ ProdutoDAO.prototype.atualizarProduto = function (data) {
                     descricao: data.descricao
                 }
             );
+        });
+        mongoclient.close();
+    });
+}
+
+ProdutoDAO.prototype.excluirProduto = function (data, res) {
+    this._conexao.open(function (err, mongoclient) {
+        mongoclient.collection("produtos", function (err, collection) {
+            collection.deleteOne({ _id: ObjectID(data._id) });
+            
+            collection.find().toArray(function (err, result) {
+                res.render("admin/listaProdutos", { data: result });
+            });
         });
         mongoclient.close();
     });
