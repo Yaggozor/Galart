@@ -33,8 +33,18 @@
                     <td><%= data[l].descricao %></td>
                     
                     <td>
-                        <button class="btn btn-success">Editar</button>
-                        <button class="btn btn-danger">Excluir</button>
+                        <form action="/admin/edicaoProduto" method="post">
+                            <input type="text" style="display:none" class="form-control" value="<%= data[l]._id %>" id="_id-produto" name="_id" />
+                            <input type="text" style="display:none" class="form-control" value="<%= data[l].nome %>" id="nome-produto" name="nome" />
+                            <input type="text" style="display:none" class="form-control" value="<%= data[l].tipo %>" id="tipo-produto" name="tipo" />
+                            <input type="file" style="display:none" class="form-control-file" value="<%= data[l].foto %>" id="foto-produto" name="foto" />
+                            <input type="text" style="display:none" class="form-control" value="<%= data[l].tamanho %>" id="tamanho-produto" name="tamanho" />
+                            <input type="text" style="display:none" class="form-control" value="<%= data[l].preco %>" id="preco-produto" name="preco" />
+                            <textarea style="display:none" class="form-control" id="descricao-produto" rows="3" name="descricao"><%= data[l].descricao %></textarea>
+
+                            <button class="btn btn-success right" type="submit">Editar</button>
+                            <a class="btn btn-danger" href="/admin/edicaoProduto">Excluir</a>
+                        </form>
                     </td>
                 </tr>
                 <% } %>
