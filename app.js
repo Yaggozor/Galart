@@ -7,6 +7,7 @@ const app= express();
 app.set('view engine','ejs');
 app.set('views','aplication/views');
 
+app.use(express.static("./aplication/public"));
 app.use(bodyparser.urlencoded({ extended : true }));
 
 consign()
@@ -17,5 +18,5 @@ consign()
     .into(app);
 
 app.listen(3000,()=>{
-    console.log('SOCORRO FUDEU')
+    console.log('Agora vai')
 });
