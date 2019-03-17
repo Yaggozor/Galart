@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html style="height: auto;" lang="pt-br">
+
+<% include ../componentes/head %>
+
+<body style="height: auto;">
+
+    <% include ../componentes/adminNavegacao %>
+    
+    <section class="container" style="margin-top: 50px; min-height: 400px;">
+        
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Nome</th>
+                    <th scope="col">E-mail</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for(let l=0; l<data.length; l++){ %>
+                <tr>
+                    
+                    <td><%= data[l].nomeadmin %></td>
+                    <td><%= data[l].emailadmin %></td>
+                    
+                    <td>
+                        <form style="display:inline" action="/admin/edicaoAdmin" method="post">
+                            <input type="text" style="display:none" class="form-control" value="<%= data[l]._id %>" id="_id-produto" name="_id" />
+                            <input type="text" style="display:none" class="form-control" value="<%= data[l].nomeadmin %>" id="nomeadmin" name="nomeadmin" />
+                            <input type="text" style="display:none" class="form-control" value="<%= data[l].emailadmin %>" id="emailadmin" name="emailadmin" />
+
+                            <button class="btn btn-success right" type="submit">Editar</button>
+                        </form>
+
+                        <form style="display:inline" action="/admin/exclusaoAdmin" method="post">
+                            <input type="text" style="display:none" class="form-control" value="<%= data[l]._id %>" id="_id-produto" name="_id" />
+                            <input type="text" style="display:none" class="form-control" value="<%= data[l].nomeadmin %>" id="nomeadmin" name="nomeadmin" />
+                            <input type="text" style="display:none" class="form-control" value="<%= data[l].emailadmin %>" id="emailadmin" name="emailadmin" />
+
+                            <button class="btn btn-danger right" type="submit">Excluir</button>
+                        </form>
+                    </td>
+                </tr>
+                <% } %>
+            </tbody>
+        </table>        
+
+    </section>
+
+    <% include ../componentes/footer %>
+</body>
+</html>
