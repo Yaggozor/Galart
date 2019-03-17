@@ -26,6 +26,31 @@ button{
 
 button:hover{
     background-color: rgba(35,164,51,0.5);
-    color:white;
-    border:none;
+    color:white !important;    
+    border-color:white !important;
 }
+.form-control{
+    width: 300px !important;
+}
+.navbar{
+    position: relative;
+    padding-left:20px;
+}
+.navbar ul{
+    padding-left: 50px;         
+}
+.menu{
+    border-bottom: 1px solid #d1fb71;
+
+}
+.slide{
+    z-index: 1;
+}
+/*.seta1{
+    width: 50px;
+    border-radius:100px;
+    background-color:red;
+   
+    margin-left:90%;
+
+}*/
