@@ -1,6 +1,7 @@
 const express= require('express');
 const consign= require ('consign');
 const bodyparser= require('body-parser');
+const expressValidator = require("express-validator");
 
 const app= express();
 
@@ -9,6 +10,7 @@ app.set('views','aplication/views');
 
 app.use(express.static("./aplication/public"));
 app.use(bodyparser.urlencoded({ extended : true }));
+app.use(expressValidator());
 
 consign()
     .include('aplication/rotas')
