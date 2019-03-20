@@ -9,6 +9,26 @@
     
     <section class="container" style="margin-top: 50px; min-height: 500px;">
         
+        <% if(valid.length > 0){ %>
+            <div class="alert alert-danger login-alert">
+                <strong>Atenção!</strong>
+                <ul>
+                    <% for(var i=0; i < valid.length; i++){ %>
+                        <li><%= valid[i].msg %></li>
+                    <% } %>
+                </ul>
+            </div>
+        <% } %>
+
+        <% if(msg.length > 0){ %>
+            <div class="alert alert-success login-alert">
+                <strong>Atenção!</strong>
+                <ul>
+                    <li><%= msg %></li>
+                </ul>
+            </div>
+        <% } %>
+
         <div class="row">
             <div class="col-sm-4">
             
