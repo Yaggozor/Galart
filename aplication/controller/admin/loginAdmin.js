@@ -20,3 +20,9 @@ module.exports.autenticacao = (app, req, res) => {
 
     AdminDAO.autenticar(formData, req, res);
 }
+
+module.exports.sair = (app, req, res) => {
+    req.session.destroy(function (err) {
+        res.render("admin/loginAdmin", { valid: {}, msg: {} });
+    });
+}
