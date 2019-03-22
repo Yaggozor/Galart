@@ -59,6 +59,28 @@ AdminDAO.prototype.excluirAdmin = function (data, res) {
     });
 }
 
+AdminDAO.prototype.autenticar = function (user, req, res) {
+    this._conexao.open(function (err, mongoclient) {
+        mongoclient.collection("admins", function (err, collection) {
+            collection.find(user).toArray(function (err, result) {
+                if (result[0] != undefined) {
+                    req.session.authorized = true;
+
+                    req.session.nomeadmin = result[0].nomeadmin;
+                }
+                if (req.session.authorized) {
+                    res.redirect("admin/listaProdutos");
+                }
+                else {
+                    res.render("admin/loginAdmin", { valid: error, msg: {} });
+                }
+
+            });
+        });
+        mongoclient.close();
+    });
+}
+
 module.exports = () => {
     return AdminDAO;
 }
