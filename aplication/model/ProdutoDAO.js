@@ -13,16 +13,22 @@ ProdutoDAO.prototype.inserirProduto = function(produto){
     });
 }
 
-ProdutoDAO.prototype.mostrarProduto = function(data, res){
+ProdutoDAO.prototype.mostrarProduto = function(data, res, admin){
     this._conexao.open(function (err, mongoclient) {
         mongoclient.collection("produtos", function (err, collection) {
-            if(data == null){
-                collection.find().toArray(function (err, result) {
-                    res.render("admin/listaProdutos", { data: result });
-                });
+            if(admin !== null){
+                if(data == null){
+                    collection.find().toArray(function (err, result) {
+                        res.render("admin/listaProdutos", { data: result });
+                    });
+                }else{
+                    collection.find({ _id: ObjectID(data._id) }).toArray(function (err, result) {
+                        res.render("admin/edicaoProduto", { data: result });
+                    });
+                }
             }else{
-                collection.find({ _id: ObjectID(data._id) }).toArray(function (err, result) {
-                    res.render("admin/edicaoProduto", { data: result });
+                collection.find().toArray(function (err, result) {
+                    res.render("cliente/catalogo", { data: result });
                 });
             }
         });
