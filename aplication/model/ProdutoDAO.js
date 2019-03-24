@@ -27,9 +27,15 @@ ProdutoDAO.prototype.mostrarProduto = function(data, res, admin){
                     });
                 }
             }else{
-                collection.find().toArray(function (err, result) {
-                    res.render("cliente/catalogo", { data: result });
-                });
+                if (data == null) {
+                    collection.find().toArray(function (err, result) {
+                        res.render("cliente/catalogo", { data: result });
+                    });
+                } else {
+                    collection.find({ _id: ObjectID(data._id) }).toArray(function (err, result) {
+                        res.render("cliente/arteDetalhe", { data: result });
+                    });
+                }
             }
         });
         mongoclient.close();

@@ -17,7 +17,13 @@
                         <h5 class="card-title"><%= data[i].nome %></h5>
                         <p class="card-text"><%= data[i].descricao %></p>
                         <p class="card-text"><%= data[i].preco %></p>
-                        <a href="#" class="btn btn-primary">+ Detalhes</a>
+
+                        <form action="/arteDetalhe" method="post">
+                            <input style="display: none;" type="text" name="_id" value="<%= data[i]._id %>" />
+
+                            <button type="submit" class="btn btn-primary">+ Detalhes</button>
+                        </form>
+                        
                     </div>
                 </div>
             </div>

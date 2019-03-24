@@ -4,7 +4,7 @@ module.exports.index = (app, req, res)=>{
         return;
     }
 
-    var admin = null;
+    var admin = req.session.nomeadmin;
     var formData = req.body;
 
     var conexao = app.dbConfig.database;
