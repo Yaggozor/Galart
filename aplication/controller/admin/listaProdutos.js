@@ -3,11 +3,14 @@ module.exports.index = (app, req, res)=>{
         res.render("componentes/error");
         return;
     }
+    const admin = req.session.nomeadmin;
+
+
     
     var conexao = app.dbConfig.database;
     var ProdutoDAO = new app.aplication.model.ProdutoDAO(conexao);
     var data = null;
     
-    ProdutoDAO.mostrarProduto(data, res);
+    ProdutoDAO.mostrarProduto(data, res, admin);
 
 }

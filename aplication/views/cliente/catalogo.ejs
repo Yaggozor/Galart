@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html style="height: auto;" lang="pt-br">
+
+<% include ../componentes/head %>
+
+<body style="height: auto;">
+
+    <% include ../componentes/navegacao %>
+    <section class="container" style="min-height: 400px;">
+        
+        <div class="row">
+        <% for(let i=0; i<data.length; i++){ %>
+            <div class="col-sm-4" style="margin-top: 20px;">
+                <div class="card" style="width: 18rem;">
+                    <img src="<% data[i].foto %>" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title"><%= data[i].nome %></h5>
+                        <p class="card-text"><%= data[i].descricao %></p>
+                        <p class="card-text"><%= data[i].preco %></p>
+
+                        <form action="/arteDetalhe" method="post">
+                            <input style="display: none;" type="text" name="_id" value="<%= data[i]._id %>" />
+
+                            <button type="submit" class="btn btn-primary">+ Detalhes</button>
+                        </form>
+                        
+                    </div>
+                </div>
+            </div>
+        <% } %>
+        </div>
+
+    </section>
+
+    <% include ../componentes/footer %>
+</body>
+</html>

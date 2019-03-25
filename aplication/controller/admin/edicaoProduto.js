@@ -4,12 +4,13 @@ module.exports.index = (app, req, res)=>{
         return;
     }
 
+    var admin = req.session.nomeadmin;
     var formData = req.body;
 
     var conexao = app.dbConfig.database;
     var ProdutoDAO = new app.aplication.model.ProdutoDAO(conexao);
 
-    ProdutoDAO.mostrarProduto(formData, res);
+    ProdutoDAO.mostrarProduto(formData, res, admin);
 
 }
 
