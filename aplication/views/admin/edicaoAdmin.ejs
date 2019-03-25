@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html style="height: auto;" lang="pt-br">
+
+<% include ../componentes/head %>
+
+<body style="height: auto;">
+
+    <% include ../componentes/adminNavegacao %>
+    
+    <section class="container" style="margin-top: 50px; min-height: 500px;">
+        
+        <div class="row">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-8">
+                <form action="/admin/adminEditado" method="post">
+                    <div class="form-group" style="display:none">
+                        <label for="_id-produto">Id do produto:</label>
+                        <input type="text" class="form-control" value="<%= data[0]._id %>" id="_id-admin" name="_id" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="nome-produto">Nome do administrador:</label>
+                        <input type="text" class="form-control" id="nome-admin" value="<%= data[0].nomeadmin %>" name="nomeadmin" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tipo-produto">E-mail:</label>
+                        <input type="email" class="form-control" id="email-admin" value="<%= data[0].emailadmin %>" name="emailadmin" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="foto-produto">Nova enha:</label>
+                        <input type="password" class="form-control" id="senha-admin" name="senhaadmin" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="foto-produto">Confirmar nova senha:</label>
+                        <input type="password" class="form-control" id="senha-admin" name="senhaadmin" />
+                    </div>
+
+                    <button class="btn btn-success right" type="submit">Confirmar</button>
+                </form>
+            </div>    
+        </div> <!-- end row -->
+
+    </section>
+
+    <% include ../componentes/footer %>
+</body>
+</html>

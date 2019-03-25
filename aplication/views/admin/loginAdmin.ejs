@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html style="height: auto;" lang="pt-br">
+
+<% include ../componentes/head %>
+
+<body style="height: auto;">
+
+    <% include ../componentes/navegacao %>
+
+    <% if(valid.length > 0){ %>
+        <div class="alert alert-danger login-alert">
+            <strong>Atenção!</strong>
+            <ul>
+                <% for(var i=0; i < valid.length; i++){ %>
+                    <li><%= valid[i].msg %></li>
+                <% } %>
+            </ul>
+        </div>
+    <% } %>
+
+    <div class="container" style="box-shadow: 2px 3px 3px #aaf; background-color: #eee; max-width: 300px; margin: 50px auto; padding: 60px 40px; border: 1px solid #888; border-radius: 10px;">
+        <form class="form-group" action="/autenticacao" method="post">
+            <label for="emailadmin">E-mail</label>
+            <div class="input-group">
+                <input type="email" style="border: 1px solid #888" id="emailadmin" name="emailadmin" class="form-control" placeholder="E-mail" aria-label="E-mail">
+            </div>
+            <br />
+            <label for="senhaadmin">Senha</label>
+            <div class="input-group">
+                <input type="password" style="border: 1px solid #888" id="senhaadmin" name="senhaadmin" class="form-control" placeholder="Senha" aria-label="Senha">
+            </div>
+            <br />
+            <button type="submit" class="btn btn-success">Login</button>
+        </form>
+    </div>
+
+    <% include ../componentes/footer %>
+</body>
+</html>
