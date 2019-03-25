@@ -1,60 +1,60 @@
-
-.fundo{
-    width:100%;
-    height: 3000px;
-    background: url(./imgs/6818642-ragnarok-online.jpg);
-    position:fixed;
-    margin:auto;
-}
-
-.dropdown-menu{
-    background-color: rgba(0, 0, 0, 0.5) ;
+*{
     
+    font-family: 'Roboto Mono', monospace;
 }
-
-.dropdown-item{
-    color:white;
-}
-.nav-link:hover{
-
-    color:#d1fb71 !important;
-}
-button{
-    color:#d1fb71 !important;
-    border-color: #d1fb71 !important;
-}
-
-button:hover{
-    background-color: rgba(35,164,51,0.5);
-    color:white !important;    
-    border-color:white !important;
-}
-.form-control{
-    width: 300px !important;
-}
-.navbar{
-    position: relative;
-    padding-left:20px;
-}
-.navbar ul{
-    padding-left: 50px;         
-}
-.menu{
-    border-bottom: 1px solid #d1fb71;
-
+.fundo{
+    width: 100%;
+    height: 2000px;
+    background-image: linear-gradient(to bottom, rgba(11,156,49,0.6), rgba(11,156,49,0.8), rgba(11,156,49,1));
+ 
 }
 .slide{
-    z-index: 1;
+    height: 40%;
 }
-/*.seta1{
-    width: 50px;
-    border-radius:100px;
-    background-color:red;
-   
-    margin-left:90%;
+.slideimg{
+    height: 40%;
+ border-bottom: 2px solid black;
+}
+.item{
+    width: 100%;
+    height: 850px;
+}
+.navbar ul{
+ text-align: justify;
+}
+.menu{
+    border-bottom:2px solid black;
+    box-shadow: 10px ;
 
-}*/
+}
+.carousel-control-prev{
+    height: 40%;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+.carousel-control-next{
+    height: 40%;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+.card-deck{
+    margin-top: -40%;
+    padding-left: 2%; 
+    padding-right: 2%;
+}
+#carouselExampleFade{
+    height: 70%;
+}
+.card{
+    border: none;
+}
+.rodape{
+    width: 100%;
+    height: 100px;
+    margin-top: 35%;
+    background-color:#c5c5c5;
 
-.ativo{
-    color:#d1fb71 !important;
+    position: absolute;
+    padding: 2%;
+}
+.menu-fixo{
+    position: fixed;
 }
