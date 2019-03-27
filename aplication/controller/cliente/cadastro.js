@@ -18,7 +18,7 @@ module.exports.inserindoCliente = (app, req, res) => {
     var error = req.validationErrors();
 
     if (error) {
-        res.render("cliente/cadastro", { valid: error, msg: {} });
+        res.render("cliente/cadastro", { valid: error, msg: {}, user: {} });
         return;
     }
 
@@ -27,5 +27,5 @@ module.exports.inserindoCliente = (app, req, res) => {
 
     ClienteDAO.inserirCliente(formData);
 
-    res.render("cliente/cadastro", { valid: {}, msg: "Cliente cadastrado com sucesso" });
+    res.render("cliente/cadastro", { valid: {}, msg: "Cliente cadastrado com sucesso", user: {} });
 }

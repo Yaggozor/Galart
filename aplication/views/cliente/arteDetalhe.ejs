@@ -5,10 +5,12 @@
 
 <body style="height: auto;">
 
+    <% if(user !== null){ %>
+    <% include ../componentes/clienteNavegacao %>
+    <% } else { %>
     <% include ../componentes/navegacao %>
+    <% } %>
     <section class="container" style="min-height: 400px;">
-        
-        
 
         <%= data[0].nome %>
 
