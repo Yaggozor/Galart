@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html style="height: auto;" lang="pt-br">
+
+<% include ../componentes/head %>
+
+<body style="height: auto;">
+
+    <% include ../componentes/navegacao %>
+
+    <% if(valid.length > 0){ %>
+        <div class="alert alert-danger login-alert">
+            <strong>Atenção!</strong>
+            <ul>
+                <% for(var i=0; i < valid.length; i++){ %>
+                    <li><%= valid[i].msg %></li>
+                <% } %>
+            </ul>
+        </div>
+    <% } %>
+
+    <% if(msg.length > 0){ %>
+        <div class="alert alert-warning login-alert">
+            <strong>Atenção!</strong>
+            <ul>
+                <li><%= msg %></li>
+            </ul>
+        </div>
+    <% } %>
+
+    <div class="container" style="box-shadow: 2px 3px 3px #aaf; background-color: #eee; max-width: 300px; margin: 50px auto; padding: 60px 40px; border: 1px solid #888; border-radius: 10px;">
+        <form class="form-group" action="/autenticar" method="post">
+            <label for="email">E-mail</label>
+            <div class="input-group">
+                <input type="email" style="border: 1px solid #888" id="email" name="email" class="form-control" placeholder="E-mail" aria-label="E-mail">
+            </div>
+            <br />
+            <label for="senha">Senha</label>
+            <div class="input-group">
+                <input type="password" style="border: 1px solid #888" id="senha" name="senha" class="form-control" placeholder="Senha" aria-label="Senha">
+            </div>
+            <br />
+            <button type="submit" class="btn btn-success">Login</button>
+            <a href="/cadastro" class="btn btn-info">Cadastro</a>
+        </form>
+    </div>
+
+    <% include ../componentes/footer %>
+</body>
+</html>

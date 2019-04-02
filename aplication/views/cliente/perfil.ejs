@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html style="height: auto;" lang="pt-br">
+
+<% include ../componentes/head %>
+
+<body style="height: auto;">
+
+    <% include ../componentes/clienteNavegacao %>
+    <section class="container" style="min-height: 400px;">
+        <p><%= data[0].nome %></p>
+        <p><%= data[0]._id %></p>
+        <p><%= data[0].email %></p>
+        
+        <form action="/editarPerfil" method="post">
+            <input style="display: none" type="text" id="_id" name="_id" value="<%= data[0]._id %>" />
+            <input style="display: none" type="text" id="editar" name="editar" value="editar" />
+            <button type="submit" class="btn btn-success">Editar Perfil</button>
+        </form>
+    </section>
+
+    <% include ../componentes/footer %>
+</body>
+</html>

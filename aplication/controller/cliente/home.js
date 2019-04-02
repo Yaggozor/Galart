@@ -1,5 +1,9 @@
 module.exports.index=(app,req,res)=>{
 
-    res.render('cliente/home')
+    if (req.session.authorized) {
+        res.render('cliente/home', { user: req.session.nome });
+    }
+    
+    res.render('cliente/home', { user: {} });
 
 }

@@ -13,27 +13,27 @@ ProdutoDAO.prototype.inserirProduto = function(produto){
     });
 }
 
-ProdutoDAO.prototype.mostrarProduto = function(data, res, admin){
+ProdutoDAO.prototype.mostrarProduto = function(data, res, admin, user){
     this._conexao.open(function (err, mongoclient) {
         mongoclient.collection("produtos", function (err, collection) {
             if(admin !== null){
                 if(data == null){
                     collection.find().toArray(function (err, result) {
-                        res.render("admin/listaProdutos", { data: result });
+                        res.render("admin/listaProdutos", { data: result, user: {} });
                     });
                 }else{
                     collection.find({ _id: ObjectID(data._id) }).toArray(function (err, result) {
-                        res.render("admin/edicaoProduto", { data: result });
+                        res.render("admin/edicaoProduto", { data: result, user: {} });
                     });
                 }
             }else{
                 if (data == null) {
                     collection.find().toArray(function (err, result) {
-                        res.render("cliente/catalogo", { data: result });
+                        res.render("cliente/catalogo", { data: result, user: user });
                     });
                 } else {
                     collection.find({ _id: ObjectID(data._id) }).toArray(function (err, result) {
-                        res.render("cliente/arteDetalhe", { data: result });
+                        res.render("cliente/arteDetalhe", { data: result, user: user });
                     });
                 }
             }
@@ -67,7 +67,7 @@ ProdutoDAO.prototype.excluirProduto = function (data, res) {
             collection.deleteOne({ _id: ObjectID(data._id) });
             
             collection.find().toArray(function (err, result) {
-                res.render("admin/listaProdutos", { data: result });
+                res.render("admin/listaProdutos", { data: result, user: {} });
             });
         });
         mongoclient.close();

@@ -4,10 +4,13 @@
 <% include ../componentes/head %>
 
 <body style="height: auto;">
-
+    <% if(user !== null){ %>
+    <% include ../componentes/clienteNavegacao %>
+    <% } else { %>
     <% include ../componentes/navegacao %>
+    <% } %>
     <section class="container" style="min-height: 400px;">
-        
+        <% console.log(user) %>
         <div class="row">
         <% for(let i=0; i<data.length; i++){ %>
             <div class="col-sm-4" style="margin-top: 20px;">
