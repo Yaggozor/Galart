@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html style="height: auto;" lang="pt-br">
+
+<% include ../componentes/head %>
+
+<body style="height: auto;">
+
+    <% include ../componentes/clienteNavegacao %>
+    <section class="container" style="min-height: 400px;">
+        <form action="/editarPerfil" method="post">
+            <input class="form-control" type="text" id="nome" name="nome" value="<%= data[0].nome %>" />
+            <input class="form-control" type="text" id="sobrenome" name="sobrenome" value="<%= data[0].sobrenome %>" />
+            <input class="form-control" type="email" id="email" name="email" value="<%= data[0].email %>" />
+            <input class="form-control" type="password" id="senha" name="senha" value="<%= data[0].senha %>" />
+            <input class="form-control" type="text" id="cpf" name="cpf" value="<%= data[0].cpf %>" />
+            <input class="form-control" type="date" id="nascimento" name="nascimento" value="<%= data[0].nascimento %>" />
+            <input class="form-control" type="text" id="ddd" name="ddd" value="<%= data[0].ddd %>" />
+            <input class="form-control" type="text" id="telefone" name="telefone" value="<%= data[0].telefone %>" />
+            <input class="form-control" type="text" id="editar" name="editar" value="editar" />
+            <button type="submit" class="btn btn-success">Salvar</button>
+        </form>
+    </section>
+
+    <% include ../componentes/footer %>
+</body>
+</html>

@@ -13,16 +13,16 @@ ClienteDAO.prototype.inserirCliente = function (cliente) {
     });
 }
 
-ClienteDAO.prototype.mostrarCliente = function (data, res) {
+ClienteDAO.prototype.mostrarCliente = function (user, res, data) {
     this._conexao.open(function (err, mongoclient) {
         mongoclient.collection("clientes", function (err, collection) {
             if (data == null) {
-                collection.find().toArray(function (err, result) {
-                    res.render("cliente/listaCliente", { data: result });
+                collection.find({ _id: ObjectID(user) }).toArray(function (err, result) {
+                    res.render("cliente/perfil", { data: result });
                 });
             } else {
-                collection.find({ _id: ObjectID(data._id) }).toArray(function (err, result) {
-                    res.render("admin/edicaoAdmin", { data: result });
+                collection.find({ _id: ObjectID(user) }).toArray(function (err, result) {
+                    res.render("cliente/editarPerfil", { data: result });
                 });
             }
         });
@@ -37,8 +37,14 @@ ClienteDAO.prototype.atualizarCliente = function (data) {
                 { _id: ObjectID(data._id) },
                 {
                     nome: data.nome,
+                    sobrenome: data.sobrenome,
                     email: data.email,
-                    senha: data.senha
+                    senha: data.senha,
+                    cpf: data.cpf,
+                    nascimento: data.nascimento,
+                    sexo: data.sexo,
+                    ddd: data.ddd,
+                    telefone: data.telefone
                 }
             );
         });
@@ -65,8 +71,9 @@ ClienteDAO.prototype.autenticar = function (user, req, res) {
             collection.find(user).toArray(function (err, result) {
                 if (result[0] != undefined) {
                     req.session.authorized = true;
-
+                    
                     req.session.nome = result[0].nome;
+                    req.session._id = result[0]._id;
                 }
                 if (req.session.authorized) {
                     res.redirect("/catalogo");
