@@ -72,7 +72,7 @@ AdminDAO.prototype.autenticar = function (user, req, res) {
                     res.redirect("admin/listaProdutos");
                 }
                 else {
-                    res.render("admin/loginAdmin", { valid: error, msg: {} });
+                    res.redirect("/galart-login-admin");
                 }
 
             });
