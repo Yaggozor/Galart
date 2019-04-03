@@ -72,7 +72,7 @@ AdminDAO.prototype.autenticar = function (user, req, res) {
                     res.redirect("admin/listaProdutos");
                 }
                 else {
-                    res.redirect("/galart-login-admin");
+                    res.render("admin/loginAdmin", { valid: {}, msg: "Senha e/ou login desconhecidos" });
                 }
 
             });
