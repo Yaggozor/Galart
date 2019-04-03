@@ -4,8 +4,11 @@
 <% include ../componentes/head %>
 
 <body style="height: auto;">
-
+    <% if(user[0] !== undefined) { %>
+    <% include ../componentes/clienteNavegacao %>
+    <% } else { %>
     <% include ../componentes/navegacao %>
+    <% } %>
     <section style="min-height: 500px;">
         sobre
     </section>

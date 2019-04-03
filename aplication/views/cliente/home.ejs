@@ -4,8 +4,12 @@
 <% include ../componentes/head %>
 
 <body>
-  <div style="display:none">
+  <div style="">
+  <% if(user[0] !== undefined) { %>
+  <% include ../componentes/clienteNavegacao %>
+  <% } else { %>
   <% include ../componentes/navegacao %>
+  <% } %>
   </div>
   
   <section class="container" style="margin-top: 50px">
