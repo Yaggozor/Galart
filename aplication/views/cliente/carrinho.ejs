@@ -7,7 +7,18 @@
 
     <% include ../componentes/clienteNavegacao %>
     <section class="container" style="min-height: 400px;">
-        teste
+        
+        <h1 class="text-center">Itens no Carrinho</h1>
+
+        <% for(var i=0; i < itens.length; i++) { %>
+        <div class="row" style="margin: 10px 0px; padding: 15px 0px; border: 1px solid #bababa; border-radius: 10px;">
+            <div class="col-sm-6">
+                <div>Produto #<%= i+1 %>: <%= itens[i].nome %></div>
+            </div>
+            <div class="col-sm-6"></div>
+        </div>
+        <% } %>
+    
     </section>
 
     <% include ../componentes/footer %>

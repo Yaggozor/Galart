@@ -4,6 +4,10 @@ module.exports = (app) => {
         app.aplication.controller.cliente.login.index(app, req, res);
     });
 
+    app.post("/login", (req, res) => {
+        app.aplication.controller.cliente.login.index(app, req, res);
+    });
+
     app.post("/autenticar", (req, res) => {
         app.aplication.controller.cliente.login.autenticacao(app, req, res);
     });

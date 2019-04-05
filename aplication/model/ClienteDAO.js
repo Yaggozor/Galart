@@ -74,6 +74,7 @@ ClienteDAO.prototype.autenticar = function (user, req, res) {
                     
                     req.session.nome = result[0].nome;
                     req.session._id = result[0]._id;
+                    req.session.item = [];
                 }
                 if (req.session.authorized) {
                     res.redirect("/catalogo");
