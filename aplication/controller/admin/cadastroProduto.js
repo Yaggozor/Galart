@@ -24,6 +24,8 @@ module.exports.inserindoProduto = (app, req, res)=>{
         return;
     }
 
+    formData.preco = parseFloat(formData.preco);
+
     var conexao = app.dbConfig.database;
     var ProdutoDAO = new app.aplication.model.ProdutoDAO(conexao);
 

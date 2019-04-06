@@ -21,6 +21,8 @@ module.exports.editandoProduto = (app, req, res)=>{
     var conexao = app.dbConfig.database;
     var ProdutoDAO = new app.aplication.model.ProdutoDAO(conexao);
 
+    formData.preco = parseFloat(formData.preco);
+
     ProdutoDAO.atualizarProduto(formData);
 
     var data = [formData];
