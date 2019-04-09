@@ -18,6 +18,15 @@
         </div>
     <% } %>
 
+    <% if(msg.length > 0){ %>
+        <div class="alert alert-warning login-alert">
+            <strong>Atenção!</strong>
+            <ul>
+                <li><%= msg %></li>
+            </ul>
+        </div>
+    <% } %>
+
     <div class="container" style="box-shadow: 2px 3px 3px #aaf; background-color: #eee; max-width: 300px; margin: 50px auto; padding: 60px 40px; border: 1px solid #888; border-radius: 10px;">
         <form class="form-group" action="/autenticacao" method="post">
             <label for="emailadmin">E-mail</label>

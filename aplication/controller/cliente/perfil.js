@@ -25,5 +25,11 @@ module.exports.editarPerfil = (app, req, res) => {
     var formData = req.body;
     var id = req.session._id;
 
+    if (formData.editar === "editando") {
+        ClienteDAO.atualizarCliente(formData);
+        res.redirect("/perfil");
+        return;
+    }
+
     ClienteDAO.mostrarCliente(id, res, formData);
 }
