@@ -157,6 +157,7 @@ outline: none;
 #check:checked ~ .mobile{
     transform: translateX(400px);
     border: 1px solid red;
+    z-index: 80;
 }
 .title{
     margin-top: 50px;
