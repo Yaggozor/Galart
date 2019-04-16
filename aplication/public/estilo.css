@@ -1,60 +1,166 @@
 *{
-    
-    font-family: 'Roboto Mono', monospace;
+    margin: 0;
+    padding: 0;
+    font-family: 'Cinzel Decorative', cursive;
 }
-.fundo{
-    width: 100%;
-    height: 2000px;
-    background-image: linear-gradient(to bottom, rgba(11,156,49,0.6), rgba(11,156,49,0.8), rgba(11,156,49,1));
- 
-}
-.slide{
-    height: 40%;
-}
-.slideimg{
-    height: 40%;
- border-bottom: 2px solid black;
-}
-.item{
-    width: 100%;
-    height: 850px;
-}
-.navbar ul{
- text-align: justify;
+body{
+    background-color: #f8f8f8 !important;
 }
 .menu{
-    border-bottom:2px solid black;
-    box-shadow: 10px ;
-
-}
-.carousel-control-prev{
-    height: 40%;
-    background-color: rgba(0, 0, 0, 0.2);
-}
-.carousel-control-next{
-    height: 40%;
-    background-color: rgba(0, 0, 0, 0.2);
-}
-.card-deck{
-    margin-top: -40%;
-    padding-left: 2%; 
-    padding-right: 2%;
-}
-#carouselExampleFade{
-    height: 70%;
-}
-.card{
-    border: none;
-}
-.rodape{
-    width: 100%;
-    height: 100px;
-    margin-top: 35%;
-    background-color:#c5c5c5;
-
-    position: absolute;
-    padding: 2%;
-}
-.menu-fixo{
+    width:300px;
+    height:1000px;
+    background: #dadada;
     position: fixed;
+    top: 0px;
+    -webkit-box-shadow: 10px 0px 5px -4px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 0px 5px -4px rgba(0,0,0,0.75);
+    box-shadow: 10px 0px 5px -4px rgba(0,0,0,0.75);
+    z-index: 1;
+}
+nav li{
+    list-style: none;
+    text-decoration: none;
+    text-align: justify;
+    margin-left: 50px;
+}
+nav li a{
+    color: #2c2c2c;
+font-size: 1.5em;
+text-decoration: none;
+}
+nav ul{
+    margin-top: 220px;
+}
+.social-media{
+    position: relative;
+    margin-top: 39%;
+    left:25%;
+    z-index: 1;
+}
+.social-media a{
+    color: #2c2c2c;
+}
+.busca{
+    background: url(imgs/lupa2.png)no-repeat center right;
+    padding: 5px;
+    border: none;
+    background-size: 30px;
+    width: 30px;
+    border-radius: 20px 20px ; 
+    -webkit-transition: all 2s linear;
+    transition: all 0.5s linear
+}
+.busca:focus{
+width: 180px;
+border-top: 1px solid #2c2c2c;
+border-bottom: 1px solid #2c2c2c;
+outline: none;
+}
+.pesquisa{
+    margin-left: 65px;
+}
+.carousel-inner{
+    width: 1000px;
+    height: 500px;
+}
+.menu2{
+    display: none;
+}
+#check{
+    display: none;
+}
+/**Adaptação para as telas **/
+.mobile{
+    display: none;
+}
+@media (max-width:1700px) {
+.menu{
+        display:none !important;
+    }
+.carousel-inner{
+    margin-top: 100px;
+    z-index: 0;
+    position: relative;
+}
+.menu2{
+     background: #dadada !important;
+    width: 100%;
+    height: 50px;
+    position: fixed;
+    top: 0 !important;
+box-shadow: -1px 8px 15px -1px rgba(0,0,0,0.75);
+z-index: 2;
+display:  block;
+}
+.iconMenu{
+    position: absolute;
+    cursor:pointer;
+}
+.fa-bars{
+    margin-left: 20px;
+    padding: 5px;
+}
+.mobile{
+    width:400px;
+    height:100%;
+    background: #dadada;
+    position: absolute;
+    top: 50px;
+    margin-left: -400px;
+    z-index: 20;
+    transition: all 2s linear;  
+    display: block;
+
+}
+nav li{
+    list-style: none;
+    text-decoration: none;
+    text-align: justify;
+    margin-left: 50px;
+}
+nav li a{
+    color: #2c2c2c;
+font-size: 1.5em;
+text-decoration: none;
+}
+nav ul{
+    margin-top: 100px;
+    margin-left: 50px;
+}
+.social-media{
+    position: relative;
+    margin-top: 29%;
+    left:40%;
+}
+.social-media a{
+    color: #2c2c2c;
+}
+.busca{
+    background: url(imgs/lupa2.png)no-repeat center right;
+    padding: 5px;
+    border: none;
+    background-size: 30px;
+    width: 30px;
+    border-radius: 20px 20px ; 
+    -webkit-transition: all 2s linear;
+    transition: all 0.5s linear;
+}
+.busca:focus{
+width: 180px;
+border-top: 1px solid #2c2c2c;
+border-bottom: 1px solid #2c2c2c;
+outline: none;
+}
+.pesquisa{
+    margin-left: 120px;
+}
+#check:checked ~ .mobile{
+    transform: translateX(400px);
+    border: 1px solid red;
+    z-index: 80;
+}
+.title{
+    margin-top: 50px;
+
+}
 }
