@@ -29,7 +29,10 @@ font-size: 1.5em;
 text-decoration: none;
 }
 nav ul{
-    margin-top: 220px;
+    margin-top: 210px;
+    width: 280px;
+    height: 240px;
+    
 }
 .social-media{
     position: relative;
@@ -57,14 +60,16 @@ border-bottom: 1px solid #2c2c2c;
 outline: none;
 }
 .pesquisa{
+
     margin-left: 65px;
+
 }
 .carousel-inner{
     width: 1000px;
     height: 500px;
 }
-.menu2{
-    display: none;
+.navbar-expand-lg{
+    display: none !important;
 }
 #check{
     display: none;
@@ -82,15 +87,14 @@ outline: none;
     z-index: 0;
     position: relative;
 }
-.menu2{
+.navbar-expand-lg{
      background: #dadada !important;
-    width: 100%;
-    height: 50px;
-    position: fixed;
+     position: fixed !important;
+     width: 100%;
     top: 0 !important;
 box-shadow: -1px 8px 15px -1px rgba(0,0,0,0.75);
 z-index: 2;
-display:  block;
+display:  block !important;
 }
 .iconMenu{
     position: absolute;
@@ -113,13 +117,16 @@ display:  block;
 
 }
 nav li{
+    margin-top: 50px ;
     list-style: none;
     text-decoration: none;
-    text-align: justify;
-    margin-left: 50px;
+    text-align: center;
+    margin-left: 80px !important;
+    position: absolute;
 }
 nav li a{
-    color: #2c2c2c;
+
+color: #2c2c2c;
 font-size: 1.5em;
 text-decoration: none;
 }
@@ -129,11 +136,13 @@ nav ul{
 }
 .social-media{
     position: relative;
-    margin-top: 29%;
-    left:40%;
+    margin-top: 30%;
+    left:0;
+    
 }
 .social-media a{
     color: #2c2c2c;
+    padding: -10px !important;
 }
 .busca{
     background: url(imgs/lupa2.png)no-repeat center right;
@@ -146,13 +155,15 @@ nav ul{
     transition: all 0.5s linear;
 }
 .busca:focus{
-width: 180px;
+width: 80%;
 border-top: 1px solid #2c2c2c;
 border-bottom: 1px solid #2c2c2c;
 outline: none;
 }
 .pesquisa{
-    margin-left: 120px;
+    margin-top: 80px;
+    position: center;
+    position: relative;
 }
 #check:checked ~ .mobile{
     transform: translateX(400px);
@@ -162,5 +173,45 @@ outline: none;
 .title{
     margin-top: 50px;
 
+}
+.navbar-nav a{
+     margin-left: 70px;
+    font-size: 20px;
+    color: black !important;
+}
+.navbar-nav a:hover{
+    color: gray !important;
+}
+.navbar-nav{
+    margin-top: 50px;
+    height: 100%!important;
+}
+}
+@media (min-width:1024px){
+.navbar-nav{
+    height: 10px!important;
+    margin-left: 10%;
+
+}
+.navbar-nav a{
+    margin-top: -40px;
+    position: relative;
+    
+
+}
+.navbar-nav i {
+    margin-left: -50px;
+}
+.pesquisa{
+    margin-top: -30px;
+}
+.busca:focus{
+    width: 200px;
+}
+@media (min-width:640px)and (max-width:1024px){
+    .procurar{
+        margin-top: -500px!important;
+        
+    }
 }
 }

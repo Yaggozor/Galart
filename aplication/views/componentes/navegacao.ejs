@@ -1,17 +1,48 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-        <a class="navbar-brand" href="#">Galart</a>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light"> <!-- Menu-->
+    <div class="container"><!-- delimitador do menu-->
+        <a class="navbar-brand" href="#">Galart</a><!-- nome que fica no menu-->
+        <!-- Botão quando a tela fica pequena-->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup"><!-- nav-->
             <div class="navbar-nav">
-                <a class="nav-item nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-                <a class="nav-item nav-link" href="/catalogo">Catálogo</a>
-                <a class="nav-item nav-link" href="/sobre">Sobre</a>
+                <a class="nav-item nav-link" href="/"><i class="fas fa-home fa-1x"></i> Início</a>
+                <a class="nav-item nav-link" href="#"><i class="fas fa-swatchbook fa-1x"></i> Catálogo</a>
+                <a class="nav-item nav-link" href="/sobre"><i class="fas fa-cat fa-1x"></i> Sobre</a>
+                <a class="nav-item nav-link" href="/login"> <i class="fas fa-user-lock fa-1x"></i> Login</a>
                 
+                <div class="pesquisa">
+                    <input type="seach" name="busca" class="busca" placeholder="          Buscar">
+                  </div>
+                <div class="social-media">
+                <a href="#"><i class="fab fa-twitter fa-2x"></i></a>
+                <a href="#"><i class="fab fa-facebook-square fa-2x"></i></a>
+                <a href="#"><i class="fab fa-instagram fa-2x"></i></a>
+              </div>
                 <!--<a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>-->
             </div>
         </div>
     </div>
 </nav>
+<!-- Fim celular e tablet -->
+
+<nav class="menu ">
+ <!--Logo menu <img  width="280px" src="imgs/logo.png">--> 
+  <ul>
+    <li class="nav-item"><a  class="nav-link active" href="/"><i class="fas fa-home fa-1x"></i> Início</a></li>
+    <li class="nav-item"><a  class="nav-link" href="/catalogo"><i class="fas fa-swatchbook fa-1x"></i> Catálogo</a></li>
+    <li class="nav-item"><a  class="nav-link" href="/sobre"><i class="fas fa-cat fa-1x"></i> Sobre</a>
+    <li class="nav-item"><a  class="nav-link" href="/login"> <i class="fas fa-user-lock fa-1x"></i> Login</a></li>
+  </ul>
+  <div class="pesquisa">
+      <input type="seach" name="busca" class="busca" placeholder="          Buscar">
+    </div>
+  <div class="social-media">
+  <a href="#"><i class="fab fa-twitter fa-2x"></i></a>
+  <a href="#"><i class="fab fa-facebook-square fa-2x"></i></a>
+  <a href="#"><i class="fab fa-instagram fa-2x"></i></a>
+</div>
+</nav>
+<br>
