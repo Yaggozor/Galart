@@ -23,6 +23,7 @@ consign()
     .then('aplication/controller')
     .then('aplication/model')
     .then("dbConfig/database.js")
+    .then("pagSeguroConfig/pagSeguro.js")
     .into(app);
 
 app.listen(3000,()=>{

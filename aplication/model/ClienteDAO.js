@@ -73,6 +73,13 @@ ClienteDAO.prototype.autenticar = function (user, req, res) {
                     req.session.authorized = true;
                     
                     req.session.nome = result[0].nome;
+                    req.session.sobrenome = result[0].sobrenome;
+                    req.session.nomecompleto = result[0].nome + " " + result[0].sobrenome;
+                    req.session.email = result[0].email;
+                    req.session.cpf = result[0].cpf;
+                    req.session.ddd = result[0].ddd;
+                    req.session.telefone = result[0].telefone;
+                    req.session.nascimento = result[0].nascimento;
                     req.session._id = result[0]._id;
                     req.session.item = [];
                 }
