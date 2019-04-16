@@ -1,4 +1,5 @@
 var ObjectID = require("mongodb").ObjectId;
+var crypto = require("crypto");
 
 function ClienteDAO(conexao) {
     this._conexao = conexao();
@@ -7,6 +8,10 @@ function ClienteDAO(conexao) {
 ClienteDAO.prototype.inserirCliente = function (cliente) {
     this._conexao.open(function (err, mongoclient) {
         mongoclient.collection("clientes", function (err, collection) {
+
+            var senha_criptografada = crypto.createHash("md5").update(cliente.senha).digest("hex");
+            cliente.senha = senha_criptografada;
+
             collection.insertOne(cliente);
         });
         mongoclient.close();
@@ -68,6 +73,10 @@ ClienteDAO.prototype.excluirCliente = function (data, res) {
 ClienteDAO.prototype.autenticar = function (user, req, res) {
     this._conexao.open(function (err, mongoclient) {
         mongoclient.collection("clientes", function (err, collection) {
+
+            var senha_criptografada = crypto.createHash("md5").update(user.senha).digest("hex");
+            user.senha = senha_criptografada;
+
             collection.find(user).toArray(function (err, result) {
                 if (result[0] != undefined) {
                     req.session.authorized = true;

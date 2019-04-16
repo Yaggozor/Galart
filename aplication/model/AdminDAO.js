@@ -1,13 +1,18 @@
 var ObjectID = require("mongodb").ObjectId;
+var crypto = require("crypto");
 
 function AdminDAO(conexao) {
     this._conexao = conexao();
 }
 
-AdminDAO.prototype.inserirAdmin = function (produto) {
+AdminDAO.prototype.inserirAdmin = function (usuario) {
     this._conexao.open(function (err, mongoclient) {
         mongoclient.collection("admins", function (err, collection) {
-            collection.insertOne(produto);
+
+            var senha_criptografada = crypto.createHash("md5").update(usuario.senha).digest("hex");
+            usuario.senha = senha_criptografada;
+            
+            collection.insertOne(usuario);
         });
         mongoclient.close();
     });
@@ -62,6 +67,10 @@ AdminDAO.prototype.excluirAdmin = function (data, res) {
 AdminDAO.prototype.autenticar = function (user, req, res) {
     this._conexao.open(function (err, mongoclient) {
         mongoclient.collection("admins", function (err, collection) {
+            
+            var senha_criptografada = crypto.createHash("md5").update(user.senha).digest("hex");
+            user.senha = senha_criptografada;
+            
             collection.find(user).toArray(function (err, result) {
                 if (result[0] != undefined) {
                     req.session.authorized = true;
