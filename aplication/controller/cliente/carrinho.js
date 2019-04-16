@@ -91,9 +91,27 @@ module.exports.pagamentoBoleto = (app, req, res) => {
         console.log(data);
     });
 
+    const order = {
+        name: req.session.nomecompleto,
+        email: req.session.email,
+        cpf_cnpj: req.session.cpf,
+        area_code: req.session.ddd,
+        phone: req.session.telefone,
+        street: formData.endereco,
+        number: formData.numeroendereco,
+        district: formData.bairro,
+        city: formData.cidade,
+        state: formData.estado,
+        postal_code: formData.cpf,
+        itens: itens,
+        method: "boleto",
+        value: formData.total
+    }
+
+    var conexao = app.dbConfig.database;
+    var TransacaoDAO = new app.aplication.model.TransacaoDAO(conexao);
+
+    TransacaoDAO.inserirTransacao(order);
+    
     res.render("cliente/compraFinalizada");
-
-    //var conexao = app.dbConfig.database;
-    //var ProdutoDAO = new app.aplication.model.ProdutoDAO(conexao);
-
 }
