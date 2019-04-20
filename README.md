@@ -45,7 +45,7 @@ Pronto, tudo configurado!
 
 6 - Agora abra o cmd e digite npm  install node  
 
-7 - Depois digite npm install nodemon  --global
+7 - Depois digite npm install nodemon --global
 
 9 - Feito os passo a cima vá nas propriedades do meu computador.
 
@@ -60,3 +60,35 @@ Pronto, tudo configurado!
 11 - Cole o local dentro do path e clique em ok.
 
 12 - Execute o programa colocando node app ou nodemon app
+
+
+## Atualizar Repositório
+
+### Configurar o Repositório Remoto Upstream
+
+
+Para sincronizar mudanças que você faz no seu fork, você precisa configurar um link remoto que aponta para o repositório upstream.
+Para isso, especifique um novo repositório upstream como remoto, ele será sincronizado com o fork. Use o comando:
+
+git remote add upstream https://github.com/dono_original/repositorio_original.git
+
+Você pode confirmar se deu certo com o comando:
+
+git remote -v
+
+
+
+### Manter Seu Repositório Atualizado
+
+
+Após essa configuração, para manter tudo atualizado basta seguir os passos abaixo.
+Primeiramente, use o comando fetch (buscar) para atualizar o seu projeto:
+
+git fetch upstream
+
+Por fim, faça o merge das alterações de upstream/master no seu branch local (master):
+
+git merge upstream/master
+
+Agora você pode commitar novas atualizações e fazer o git push para o Github.
+Não se esqueça de sempre realizar esses passos fetch e merge antes de começar a trabalhar no projeto.

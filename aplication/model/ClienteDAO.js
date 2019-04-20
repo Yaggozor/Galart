@@ -74,12 +74,13 @@ ClienteDAO.prototype.autenticar = function (user, req, res) {
                     
                     req.session.nome = result[0].nome;
                     req.session._id = result[0]._id;
+                    req.session.item = [];
                 }
                 if (req.session.authorized) {
                     res.redirect("/catalogo");
                 }
                 else {
-                    res.render("cliente/login", { valid: {}, msg: "Senha e login desconhecidos" });
+                    res.render("cliente/login", { valid: {}, msg: "Senha e/ou login desconhecidos" });
                 }
 
             });
