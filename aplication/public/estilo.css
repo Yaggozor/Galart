@@ -8,7 +8,7 @@ body{
 }
 .menu{
     width:300px;
-    height:1000px;
+    height:100%;
     background: #dadada;
     position: fixed;
     top: 0px;
@@ -33,12 +33,6 @@ nav ul{
     width: 280px;
     height: 240px;
     
-}
-.social-media{
-    position: relative;
-    margin-top: 39%;
-    left:25%;
-    z-index: 1;
 }
 .social-media a{
     color: #2c2c2c;
@@ -77,6 +71,19 @@ outline: none;
 /**Adaptação para as telas **/
 .mobile{
     display: none;
+}
+.login{
+    width: 500px!important;
+    height: 40%!important;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5); 
+    background-color:  #f8f8f8; 
+    max-width: 300px; 
+    padding: 60px 40px; 
+    border: 1px solid black; 
+    border-radius: 10px;
+    margin-top: 80px;
+    opacity: 0.9;
+       
 }
 @media (max-width:1700px) {
 .menu{
@@ -134,16 +141,6 @@ nav ul{
     margin-top: 100px;
     margin-left: 50px;
 }
-.social-media{
-    position: relative;
-    margin-top: 30%;
-    left:0;
-    
-}
-.social-media a{
-    color: #2c2c2c;
-    padding: -10px !important;
-}
 .busca{
     background: url(imgs/lupa2.png)no-repeat center right;
     padding: 5px;
@@ -190,7 +187,7 @@ outline: none;
 @media (min-width:1024px){
 .navbar-nav{
     height: 10px!important;
-    margin-left: 10%;
+    margin-left: 2%;
 
 }
 .navbar-nav a{
@@ -203,14 +200,13 @@ outline: none;
     margin-left: -50px;
 }
 .pesquisa{
-    margin-top: -30px;
+    margin-top: -35px;
+    left: -80px;
 }
 .busca:focus{
     width: 200px;
 }
-.form-group{
-    margin-left: -30%!important;
-}}
+
 @media (min-width:640px)and (max-width:1024px){
     .procurar{
         margin-top: -500px!important;
@@ -222,21 +218,10 @@ outline: none;
     .login{
         padding: 60px 20px;
     }
+
 }
 
-.login{
-    width: 500px!important;
-    height: 600px;
-    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5); 
-    background-color:  #f8f8f8; 
-    max-width: 300px; 
-    padding: 60px 40px; 
-    border: 1px solid black; 
-    border-radius: 10px;
-    margin-top: 80px;
-    opacity: 0.9;
-       
-}
+
 .form-group{
     text-align: center;
     padding: 130px 0px;
@@ -247,4 +232,15 @@ outline: none;
 }
 .btn{
     margin-top: 10px !important;
+}
+}
+@media (min-width:1400px) and (max-width:1440px) {
+    .pesquisa{
+        left: 10px;
+    }
+}
+@media (min-width:1480px) and (max-width:1680px) {
+    .pesquisa{
+        left: 30px;
+    }
 }
