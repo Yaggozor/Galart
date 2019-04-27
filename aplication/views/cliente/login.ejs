@@ -1,35 +1,35 @@
 <!DOCTYPE html>
 <html style="height: auto;" lang="pt-br">
-    <% include ../componentes/navegacao %>
+
 <% include ../componentes/head %>
 
 <body style="background-image: linear-gradient(-90deg,#5b5b5b, #424242);">
 
-    
+    <% include ../componentes/navegacao %>
 
-<center>
-    <% if(valid.length > 0){ %>
-        <div class="alert alert-danger login-alert">
-            <strong>Atenção!</strong>
-            <ul>
-                <% for(var i=0; i < valid.length; i++){ %>
-                    <li><%= valid[i].msg %></li>
-                <% } %>
-            </ul>
-        </div>
-    <% } %>
+    <center>
+        <% if(valid.length > 0){ %>
+            <div class="alert alert-danger login-alert">
+                <strong>Atenção!</strong>
+                <ul>
+                    <% for(var i=0; i < valid.length; i++){ %>
+                        <li><%= valid[i].msg %></li>
+                    <% } %>
+                </ul>
+            </div>
+        <% } %>
 
-    <% if(msg.length > 0){ %>
-        <div class="alert alert-warning login-alert">
-            <strong>Atenção!</strong>
-            <ul>
-                <li><%= msg %></li>
-            </ul>
-        </div>
-    <% } %>
-</center>
-    <div class="container login">
+        <% if(msg.length > 0){ %>
+            <div class="alert alert-warning login-alert">
+                <strong>Atenção!</strong>
+                <ul>
+                    <li><%= msg %></li>
+                </ul>
+            </div>
+        <% } %>
+    </center>
 
+    <div class="container2 login">
         <form class="form-group" action="/autenticar" method="post">
             <label for="email">E-mail</label>
             <div class="input-group">
@@ -45,7 +45,6 @@
             <a href="/cadastro" class="btn btn-info"><i class="fas fa-address-card fa-1x"></i> Cadastro</a>
         </form>
     </div>
-
 
 </body>
 </html>
