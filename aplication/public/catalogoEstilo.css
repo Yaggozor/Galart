@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Cinzel Decorative', cursive;
+}
+body {
+    background-color: #f8f8f8 !important;
+}
+
+/* ====== Navbar ====== */
+.menu {
+    box-shadow: -1px 8px 15px -1px rgba(0,0,0,0.75);
+}
+.navbar-nav a {
+    padding: 0px 15px !important;
+    color: #2c2c2c !important;
+}
+
+.card-style {
+    height: 470px;
+    margin: 10px auto;
+}
+.card-img {
+    height: 200px;
+}
+.card-img img {
+    max-height: 470px;
+}
+.card-body-style {
+    background-color: #fff;
+    min-height: 250px;
+}
+.social-media a {
+    color: #2c2c2c;
+}
