@@ -19,11 +19,13 @@
   "dependencies": {
     "body-parser": "^1.18.3",
     "consign": "^0.1.6",
+    "crypto": "^1.0.1",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
     "express-session": "^1.15.6",
     "express-validator": "^3.2.1",
     "mongodb": "^2.2.10",
+    "node-pagseguro": "^0.1.9",
     "nodemon": "^1.18.10"
   }
 }

@@ -1,4 +1,5 @@
 var ObjectID = require("mongodb").ObjectId;
+var crypto = require("crypto");
 
 function ClienteDAO(conexao) {
     this._conexao = conexao();
@@ -7,6 +8,10 @@ function ClienteDAO(conexao) {
 ClienteDAO.prototype.inserirCliente = function (cliente) {
     this._conexao.open(function (err, mongoclient) {
         mongoclient.collection("clientes", function (err, collection) {
+
+            var senha_criptografada = crypto.createHash("md5").update(cliente.senha).digest("hex");
+            cliente.senha = senha_criptografada;
+
             collection.insertOne(cliente);
         });
         mongoclient.close();
@@ -68,11 +73,22 @@ ClienteDAO.prototype.excluirCliente = function (data, res) {
 ClienteDAO.prototype.autenticar = function (user, req, res) {
     this._conexao.open(function (err, mongoclient) {
         mongoclient.collection("clientes", function (err, collection) {
+
+            var senha_criptografada = crypto.createHash("md5").update(user.senha).digest("hex");
+            user.senha = senha_criptografada;
+
             collection.find(user).toArray(function (err, result) {
                 if (result[0] != undefined) {
                     req.session.authorized = true;
                     
                     req.session.nome = result[0].nome;
+                    req.session.sobrenome = result[0].sobrenome;
+                    req.session.nomecompleto = result[0].nome + " " + result[0].sobrenome;
+                    req.session.email = result[0].email;
+                    req.session.cpf = result[0].cpf;
+                    req.session.ddd = result[0].ddd;
+                    req.session.telefone = result[0].telefone;
+                    req.session.nascimento = result[0].nascimento;
                     req.session._id = result[0]._id;
                     req.session.item = [];
                 }

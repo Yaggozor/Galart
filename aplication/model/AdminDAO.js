@@ -1,13 +1,18 @@
 var ObjectID = require("mongodb").ObjectId;
+var crypto = require("crypto");
 
 function AdminDAO(conexao) {
     this._conexao = conexao();
 }
 
-AdminDAO.prototype.inserirAdmin = function (produto) {
+AdminDAO.prototype.inserirAdmin = function (usuario) {
     this._conexao.open(function (err, mongoclient) {
         mongoclient.collection("admins", function (err, collection) {
-            collection.insertOne(produto);
+
+            var senha_criptografada = crypto.createHash("md5").update(usuario.senhaadmin).digest("hex");
+            usuario.senhaadmin = senha_criptografada;
+            
+            collection.insertOne(usuario);
         });
         mongoclient.close();
     });
@@ -62,19 +67,22 @@ AdminDAO.prototype.excluirAdmin = function (data, res) {
 AdminDAO.prototype.autenticar = function (user, req, res) {
     this._conexao.open(function (err, mongoclient) {
         mongoclient.collection("admins", function (err, collection) {
+            
+            var senha_criptografada = crypto.createHash("md5").update(user.senhaadmin).digest("hex");
+            user.senhaadmin = senha_criptografada;
+            
             collection.find(user).toArray(function (err, result) {
-                if (result[0] != undefined) {
-                    req.session.authorized = true;
-
-                    req.session.nomeadmin = result[0].nomeadmin;
-                }
-                if (req.session.authorized) {
-                    res.redirect("admin/listaProdutos");
-                }
-                else {
+                if(result[0] == undefined){
                     res.render("admin/loginAdmin", { valid: {}, msg: "Senha e/ou login desconhecidos" });
-                }
+                } else {
+                    if (result[0].senhaadmin === user.senhaadmin) {
+                        req.session.authorized = true;
 
+                        req.session.nomeadmin = result[0].nomeadmin;
+
+                        res.redirect("admin/listaProdutos");
+                    }
+                }
             });
         });
         mongoclient.close();
