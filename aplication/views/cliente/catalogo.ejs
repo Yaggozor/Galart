@@ -12,9 +12,16 @@
     <section class="container" style="margin-top: 50px; min-height: 400px;">
         <div class="row">
             <div class="container">
-                <div>
-                    <!-- fazer o filtro aqui -->
-                </div>
+                <form class="arte-filtro" action="" method="post">
+                    <input class="form-control" type="text" placeholder="Buscar arte por nome..." />
+                    <select class="form-control">
+                        <option>Todas</option>
+                        <option>Digital</option>
+                        <option>Nanquim</option>
+                        <option>Tradicional</option>
+                    </select>
+                    <button class="btn btn-success" type="submit">Pesquisar</button>
+                </form>
             </div>
         </div>
         <div class="row">
