@@ -31,7 +31,7 @@
 
         <div class="row">
             <div class="col-sm-4">
-            
+                <img id="foto-thumbnail" class="img-fluid" src="">
             </div>
             <div class="col-sm-8">
                 <form action="/admin/cadastroProduto" method="post">
@@ -43,7 +43,6 @@
                     <div class="form-group">
                         <label for="tipo-produto">Tipo do produto:</label>
                         <select id="tipo-produto" class="form-control" name="tipo">
-                            <option value="Todas">Todas</option>
                             <option value="Digital">Digital</option>
                             <option value="Nanquim">Nanquim</option>
                             <option value="Tradicional">Tradicional</option>
@@ -76,6 +75,15 @@
         </div> <!-- end row -->
 
     </section>
+
+    <script>
+    $("#foto-produto").on("change", function(){
+        var img = $(this).val();
+        img = img.split("\\");
+        console.log(img);
+        $("#foto-thumbnail").attr("src", "/imgs/" + img[2]);
+    });
+    </script>
 
     <% include ../componentes/footer %>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
