@@ -42,6 +42,37 @@ ProdutoDAO.prototype.mostrarProduto = function(data, res, admin, user){
     });
 }
 
+ProdutoDAO.prototype.filtrarProduto = function (data, res, admin, user) {
+    this._conexao.open(function (err, mongoclient) {
+        mongoclient.collection("produtos", function (err, collection) {
+            var nome = new RegExp(data.busca, 'i');
+            var tipo = data.categoria;
+
+            if (tipo === "Todas") {
+                console.log("teste todas: " + nome);
+                collection.find({ nome : nome }).toArray(function (err, result) {
+                    console.log(result);
+                    res.render("cliente/catalogo", { data: result, user: user });
+                });
+            } else {
+                console.log("teste outra categoria");
+                collection.find({
+
+                    $and: [
+                        { nome: nome },
+                        { tipo: tipo }
+                    ]
+
+                }).toArray(function (err, result) {
+                    console.log(result);
+                    res.render("cliente/catalogo", { data: result, user: user });
+                });
+            }
+        });
+        mongoclient.close();
+    });
+}
+
 ProdutoDAO.prototype.atualizarProduto = function (data) {
     this._conexao.open(function (err, mongoclient) {
         mongoclient.collection("produtos", function (err, collection) {
