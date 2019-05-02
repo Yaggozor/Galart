@@ -33,7 +33,7 @@ ProdutoDAO.prototype.mostrarProduto = function(data, res, admin, user){
                     });
                 } else {
                     collection.find({ _id: ObjectID(data._id) }).toArray(function (err, result) {
-                        res.render("cliente/arteDetalhe", { data: result, user: user });
+                        res.render("cliente/arteDetalhe", { data: result, user: user, msg: {} });
                     });
                 }
             }
@@ -49,13 +49,10 @@ ProdutoDAO.prototype.filtrarProduto = function (data, res, admin, user) {
             var tipo = data.categoria;
 
             if (tipo === "Todas") {
-                console.log("teste todas: " + nome);
                 collection.find({ nome : nome }).toArray(function (err, result) {
-                    console.log(result);
                     res.render("cliente/catalogo", { data: result, user: user });
                 });
             } else {
-                console.log("teste outra categoria");
                 collection.find({
 
                     $and: [
@@ -64,7 +61,6 @@ ProdutoDAO.prototype.filtrarProduto = function (data, res, admin, user) {
                     ]
 
                 }).toArray(function (err, result) {
-                    console.log(result);
                     res.render("cliente/catalogo", { data: result, user: user });
                 });
             }
@@ -112,7 +108,7 @@ ProdutoDAO.prototype.addProdutoCarrinho = function (data, req, res, user) {
                 
                 req.session.item.push(result[0]);
                 
-                res.render("cliente/arteDetalhe", { data: result, user: user });
+                res.render("cliente/arteDetalhe", { data: result, user: user, msg: "Item adicionado ao carrinho!" });
             });
         });
         mongoclient.close();
