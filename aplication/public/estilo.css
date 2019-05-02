@@ -48,6 +48,12 @@ nav ul {
 #check {
     display: none;
 }
+.card-img-style {
+    max-height: 200px;
+}
+.card-body-style {
+    background-color: #fff;
+}
 
 /**Adaptação para as telas **/
 .mobile {
