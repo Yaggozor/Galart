@@ -33,8 +33,9 @@
                     </div>
                     <div class="card-body card-body-style">
                         <h5 class="card-title"><%= data[i].nome %></h5>
+                        <p class="card-text"><%= data[i].tipo %></p>
                         <p class="card-text"><%= data[i].descricao %></p>
-                        <p class="card-text"><%= data[i].preco %></p>
+                        <p class="card-text">R$ <%= data[i].preco %>,00</p>
 
                         <form action="/arteDetalhe" method="post">
                             <input style="display: none;" type="text" name="_id" value="<%= data[i]._id %>" />
