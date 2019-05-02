@@ -10,7 +10,9 @@
     <section class="container" style="margin-top: 50px; min-height: 500px;">
         
         <div class="row">
-            <div class="col-sm-4"></div>
+            <div class="col-sm-4">
+                <img class="img-fluid" src="/imgs/<%= data[0].foto %>">
+            </div>
             <div class="col-sm-8">
                 <form action="/admin/produtoEditado" method="post">
                     <div class="form-group" style="display:none">
@@ -25,6 +27,11 @@
 
                     <div class="form-group">
                         <label for="tipo-produto">Tipo do produto:</label>
+                        <select id="tipo-produto" class="form-control" name="tipo">
+                            <option value="Digital">Digital</option>
+                            <option value="Nanquim">Nanquim</option>
+                            <option value="Tradicional">Tradicional</option>
+                        </select>
                         <input type="text" class="form-control" id="tipo-produto" value="<%= data[0].tipo %>" name="tipo" />
                     </div>
 

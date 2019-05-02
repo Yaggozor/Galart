@@ -16,6 +16,7 @@ body {
     color: #2c2c2c !important;
 }
 
+/* ====== Card ====== */
 .card-style {
     height: 470px;
     margin: 10px auto;
@@ -32,4 +33,29 @@ body {
 }
 .social-media a {
     color: #2c2c2c;
+}
+
+/* ====== Filtro ====== */
+.arte-filtro {
+    margin: auto;
+    text-align: center;
+}
+.arte-filtro input,
+.arte-filtro select {
+    display: inline-block;
+    margin-bottom: 10px;
+}
+.arte-filtro input {
+    max-width: 300px;
+}
+.arte-filtro select {
+    max-width: 200px;
+}
+.arte-filtro button {
+    background-color: #1B3854;
+    border: 1px solid #1B3854;
+}
+.arte-filtro button:hover {
+    background-color: #007bff;
+    border: 1px solid #007bff;
 }
