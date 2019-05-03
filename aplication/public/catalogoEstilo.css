@@ -18,12 +18,12 @@ body {
 
 /* ====== Card ====== */
 .card-style {
-    height: 470px;
+    /*height: 470px;*/
     margin: 10px auto;
 }
-.card-img {
-    height: 200px;
-}
+/*.card-img {
+    height: 400px;
+}*/
 .card-img img {
     max-height: 470px;
 }

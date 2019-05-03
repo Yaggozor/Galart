@@ -5,6 +5,19 @@
 
 <body>
 
+  <div id="splash">
+    <img id="squig" class="img-fluid" src="imgs/perfil.jpeg">
+    <img id="spinner" class="img-fluid" src="imgs/spinner.svg">
+  </div>
+
+  <script>
+    window.onload = function(){
+      setTimeout(function(){
+        document.getElementById("splash").style.display = "none";
+      }, 2000);
+    }
+  </script>
+
   <% if(user[0] !== undefined) { %>
   <% include ../componentes/clienteNavegacao %>
   <% } else { %>

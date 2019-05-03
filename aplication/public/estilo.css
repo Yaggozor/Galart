@@ -6,6 +6,25 @@
 body {
     background-color: #f8f8f8 !important;
 }
+#splash {
+    position: absolute;
+    z-index: 99998;
+    background-color: #FDFDFD;
+    height: 100%;
+    width: 100%;
+}
+#splash #squig {
+    max-width: 200px;
+    display: block;
+    margin: 10% auto;
+}
+#splash #spinner {
+    width: 150px;
+    position: relative;
+    display: block;
+    margin: auto;
+    bottom: 30%;
+}
 .container2 {
     margin-left: 30%;
     margin-right: 10%;
