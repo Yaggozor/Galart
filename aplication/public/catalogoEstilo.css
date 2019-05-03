@@ -59,3 +59,31 @@ body {
     background-color: #007bff;
     border: 1px solid #007bff;
 }
+
+/* ====== Carrinho ====== */
+.bg-carrinho {
+    background-image: url("imgs/bg-carrinho.jpeg");
+}
+#step-1, #step-2 {
+    background-color: rgb(255, 255, 255);
+    margin-top: 70px;
+    max-width: 700px;
+    padding: 30px 20px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 4px #2c2c2c;
+}
+.titulo-carrinho {
+    font-size: 1.5em;
+}
+.form-inline-block {
+    display: inline-block;
+}
+#endereco {
+    max-width: 300px;
+}
+#numeroendereco {
+    max-width: 100px;
+}
+#bairro, #cidade, #estado, #cep {
+    max-width: 200px;
+}

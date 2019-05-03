@@ -6,7 +6,53 @@
 <body style="height: auto;">
 
     <% include ../componentes/clienteNavegacao %>
-    <section class="container" style="min-height: 400px;">
+
+    <section class="container2" style="min-height: 400px;">
+        <br>
+        <br>  <br>
+            <center><h2><strong>PERFIL</strong></h2></center>
+            <hr>
+          <div class="Perfil">
+              
+            <div class="itensPerfil-Ative">
+                    <center> <img class="iconPer" src="imgs\perfil.jpeg"></center>
+                    <hr>
+             <h4> <strong><%= data[0].nome %> <%= data[0].sobrenome %></strong></h4>
+            </div>
+         
+            <br>
+            <div class="Menu-Perfil">
+                    <br>
+                    <div class="itensPerfil">
+                            <i class="fas fa-portrait fa-1x"></i> | Nome: <br>
+                            <strong><%= data[0].nome %></strong>
+                    </div>
+                    <br>
+                    <div class="itensPerfil">
+                            <i class="fas fa-portrait fa-1x"></i> | Sobrenome: <br>
+                            <strong><%= data[0].sobrenome %></strong>
+                    </div>
+                    <br>
+            <div class="itensPerfil">
+                    <i class="fas fa-envelope-open fa-1x"></i> | E-mail: <br>
+                    <strong><%= data[0].email %></strong>
+            </div>
+            <br>
+            <div class="itensPerfil">
+                    <i class="fas fa-id-card fa-1x"></i> | CPF: 
+                    <br><strong><%= data[0].cpf %></strong>
+            </div>
+        </div>
+        <br>
+        <center><form action="/editarPerfil" method="post">
+            <input style="display: none" type="text" id="_id" name="_id" value="<%= data[0]._id %>" />
+            <input style="display: none" type="text" id="editar" name="editar" value="editar" />
+            <button type="submit" class="btn btn-outline-secondary">Editar Perfil</button>
+        </form>
+    </center>
+    </section>
+
+    <!--<section class="container" style="min-height: 400px;">
         <p><%= data[0].nome %></p>
         <p><%= data[0]._id %></p>
         <p><%= data[0].email %></p>
@@ -16,7 +62,7 @@
             <input style="display: none" type="text" id="editar" name="editar" value="editar" />
             <button type="submit" class="btn btn-success">Editar Perfil</button>
         </form>
-    </section>
+    </section>-->
 
     <% include ../componentes/footer %>
 </body>

@@ -54,6 +54,49 @@ nav ul {
 .card-body-style {
     background-color: #fff;
 }
+.Menu-Perfil {
+    background-color: white;   
+    height: 497px;   
+    border-radius: 10px 0px 20px 20px;
+    position: relative;
+    border: 1px solid gray;
+    border-radius: 20px 20px 0 0 ;
+}
+.itensPerfil {
+    height: 100px;
+    border-bottom: 0.5px solid gray;
+    text-align: justify;
+    padding:2px 2px;
+    text-align: center;
+    padding: 2px;
+}
+.itensPerfil-Ative {
+    background-color: white;
+    text-align: center;
+    padding-top:10px;
+    padding-bottom: 5px;
+    color: gray;
+    border: 1px solid gray;
+    border-radius: 20px;
+}
+.Perfil {
+    padding-top: 20px;
+}
+.iconPer {
+    width: 150px;
+    height: 150px;
+    border-radius: 360px;
+    border: 1px solid gray;
+    z-index: 1 !important;
+}
+#editPerfilForm {
+    height: 850px;
+    background: rgb(204, 204, 204);
+    position: relative;
+    top:2%;
+    margin-top: 5%;
+    border-radius: 10px;
+}
 
 /**Adaptação para as telas **/
 .mobile {

@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html style="height: auto;" lang="pt-br">
 
-<% include ../componentes/head %>
+<% include ../componentes/catalogoHead %>
 
-<body style="height: auto;">
+<body class="bg-carrinho" style="height: auto;">
 
-    <% include ../componentes/clienteNavegacao %>
     <!-- ========== Passo 1 ========== -->
     <section class="container" id="step-1" style="min-height: 400px;">
         
-        <h1 class="text-center">Itens no Carrinho</h1>
-
+        <h1 class="text-center titulo-carrinho"><i class="fas fa-shopping-cart"></i> Itens no Carrinho</h1>
+        <hr>
         <% var total = 0; %>
         <% for(var i=0; i < itens.length; i++) { %>
         <% total += itens[i].preco %>
@@ -24,47 +23,69 @@
         </div>
         <% } %>
 
-        <div>Total: R$ <%= total %></div>
-        <button class="btn btn-success" onclick="goNextStep('step-1', 'step-2')" type="button">Avançar</button>
-    
+        <div style="margin: 10px 30px 30px 30px;">Total: R$ <%= total %></div>
+        <div class="clearfix">
+            <a class="btn btn-outline-success float-left" href="/catalogo">Voltar</a>
+            <button class="btn btn-success float-right" onclick="goNextStep('step-1', 'step-2')" type="button">Avançar</button>
+        </div>
+
     </section>
 
     <!-- ========== Passo 2 ========== -->
     <section class="container" id="step-2" style="min-height: 400px; display: none;">
     
-        <h1 class="text-center">Endereço e Forma de Pagamento</h1>
-
+        <h1 class="text-center titulo-carrinho"><i class="fas fa-map-marker-alt"></i> Endereço e Forma de Pagamento</h1>
+        <hr>
         <form action="/pagamentoBoleto" method="post" id="dados-pagamento">
             <div class="row">
-                
-                <div class="col-sm-6">
-                    <% for(var i=0; i < itens.length; i++) { %>
-                        <input type="text" name="item<%= i+1 %>preco" value="<%= itens[i].preco %>" />
-                        <input type="text" name="item<%= i+1 %>nome" value="<%= itens[i].nome %>" />
-                    <% } %>
-                    <input type="text" name="total" value="<%= total %>" />
+                <div class="col-sm-12">
+                    <div>Opção de pagamento:</div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" onclick="paymentType('boleto', 'dados-pagamento')" name="forma-pagamento" id="boleto" value="boleto" checked>
+                        <label class="form-check-label" for="boleto">
+                            Boleto
+                        </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" onclick="paymentType('creditcard', 'dados-pagamento')" name="forma-pagamento" id="creditcard" value="creditcard" disabled>
+                        <label class="form-check-label" for="creditcard">
+                            Cartão de Crédito
+                        </label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-sm-8">
+                    <div hidden="none">
+                        <% for(var i=0; i < itens.length; i++) { %>
+                            <input type="text" name="item<%= i+1 %>preco" value="<%= itens[i].preco %>" />
+                            <input type="text" name="item<%= i+1 %>nome" value="<%= itens[i].nome %>" />
+                        <% } %>
+                        <input type="text" name="total" value="<%= total %>" />
+                    </div>
 
-                    <div class="form-group">
+                    <div class="form-group form-inline-block">
                         <label for="endereco">Endereço:</label>
                         <input type="text" class="form-control" id="endereco" name="endereco" placeholder="">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group form-inline-block">
                         <label for="numeroendereco">Nº:</label>
                         <input type="text" class="form-control" id="numeroendereco" name="numeroendereco" placeholder="">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group form-inline-block">
                         <label for="bairro">Bairro:</label>
                         <input type="text" class="form-control" id="bairro" name="bairro">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group form-inline-block">
                         <label for="cidade">Cidade:</label>
                         <input type="text" class="form-control" id="cidade" name="cidade">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group form-inline-block">
                         <label for="estado">Estado:</label>
                         <input type="text" class="form-control" id="estado" name="estado">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group form-inline-block">
                         <label for="cep">CEP:</label>
                         <input type="text" class="form-control" id="cep" name="cep">
                     </div>
@@ -74,22 +95,10 @@
                     </div>
                 </div>
 
-                <div class="col-sm-6">(Opção de pagamento por cartão de crédito em construção)</div>
+                <div class="col-sm-4">
+                    <div class="alert alert-warning text-center">Opção de pagamento por cartão de crédito em construção</div>
+                </div>
             
-            </div>
-
-            <div>Opção de pagamento:</div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" onclick="paymentType('boleto', 'dados-pagamento')" name="forma-pagamento" id="boleto" value="boleto" checked>
-                <label class="form-check-label" for="boleto">
-                    Boleto
-                </label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" onclick="paymentType('creditcard', 'dados-pagamento')" name="forma-pagamento" id="creditcard" value="creditcard" disabled>
-                <label class="form-check-label" for="creditcard">
-                    Cartão de Crédito
-                </label>
             </div>
         </form>
 
@@ -110,6 +119,5 @@
     }
     </script>
 
-    <% include ../componentes/footer %>
 </body>
 </html>

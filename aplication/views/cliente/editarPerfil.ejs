@@ -6,7 +6,32 @@
 <body style="height: auto;">
 
     <% include ../componentes/clienteNavegacao %>
-    <section class="container" style="min-height: 400px;">
+    
+    <div  class="container2" id="editPerfilForm">  
+        <br> <br>
+            <center><h2><strong>Editar Perfil</strong></h2></center>
+            <hr>
+    <section class="" style="margin-left: 20%; margin-right: 20%; min-height: 400px;">
+            <center> <img class="iconPer" src="imgs\perfil.jpeg"></center>
+            <hr>
+        <form action="/editarPerfil" method="post">
+            <input class="form-control"  hidden="none" type="text" id="_id" name="_id" value="<%= data[0]._id %>" />
+            Nome:<input class="form-control" type="text" id="nome" name="nome" value="<%= data[0].nome %>" />
+            Sobrenome:<input class="form-control" type="text" id="sobrenome" name="sobrenome" value="<%= data[0].sobrenome %>" />
+            E-mail:<input class="form-control" type="email" id="email" name="email" value="<%= data[0].email %>" />
+            Senha:<input class="form-control" type="password" id="senha" name="senha" value="<%= data[0].senha %>" />
+            Cpf:<input class="form-control" type="text" id="cpf" name="cpf" value="<%= data[0].cpf %>" />
+            Data de Nascimento:<input class="form-control" type="date" id="nascimento" name="nascimento" value="<%= data[0].nascimento %>" />
+            DDD:<input class="form-control" type="text" id="ddd" name="ddd" value="<%= data[0].ddd %>" />
+            Telefone<input class="form-control" type="text" id="telefone" name="telefone" value="<%= data[0].telefone %>" />
+            <input class="form-control" type="text" id="editar" name="editar" hidden="none" value="editando" />
+      <br>
+            <center><button type="submit" class="btn btn-secondary">Salvar</button></center>
+        </form>
+    </section>
+</div>
+    
+    <!--<section class="container" style="min-height: 400px;">
         <form action="/editarPerfil" method="post">
             <input class="form-control" type="text" id="_id" name="_id" value="<%= data[0]._id %>" />
             <input class="form-control" type="text" id="nome" name="nome" value="<%= data[0].nome %>" />
@@ -20,7 +45,7 @@
             <input class="form-control" type="text" id="editar" name="editar" value="editando" />
             <button type="submit" class="btn btn-success">Salvar</button>
         </form>
-    </section>
+    </section>-->
 
     <% include ../componentes/footer %>
 </body>
