@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html style="height: auto;" lang="pt-br">
 
-<% include ../componentes/head %>
+<% include ../componentes/catalogoHead %>
 
 <body style="height: auto;">
 
-    <% include ../componentes/navegacao %>
+    <% include ../componentes/catalogoNavegacao %>
 
     <% if(valid.length > 0){ %>
         <div class="alert alert-danger login-alert">
@@ -27,7 +27,7 @@
         </div>
     <% } %>
 
-    <section class="container2" style="margin-top: 50px; min-height: 400px; max-width: 700px;">
+    <section class="container" style="margin-top: 50px; min-height: 400px; max-width: 700px;">
         <form action="" method="post">
 
             <h2 style="margin-bottom: 30px" class="text-center">Cadastro de Cliente</h2>
@@ -99,6 +99,6 @@
         
     </section>
 
-    <% include ../componentes/footer %>
+    <% include ../componentes/catalogoFooter %>
 </body>
 </html>
