@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html style="height: auto;" lang="pt-br">
+
+<% include ../componentes/catalogoHead %>
+
+<body style="height: auto;">
+
+    <% include ../componentes/catalogoClienteNavegacao %>
+
+    <section class="container" style="margin-top: 50px; min-height: 400px;">
+        <h1>Histórico de Compras</h1>
+        
+        <% for(var i=0; i < data.length; i++){ %>
+            <div class="row" style="margin: 15px; padding: 15px; border: 1px solid #666; border-radius: 10px;">
+                <div class="col-sm-4">
+                <p>Cliente: <%= data[i].name %></p>
+                </div>
+                <div class="col-sm-4">
+                <p>E-mail: <%= data[i].email %></p>
+                </div>
+                <div class="col-sm-4">
+                <p><%= data[i].cpf_cnpj %></p>
+                </div>
+                <div class="col-sm-4">
+                <p><%= data[i].area_code %></p>
+                </div>
+                <div class="col-sm-4">
+                <p><%= data[i].phone %></p>
+                </div>
+                <div class="col-sm-4">
+                <p><%= data[i].street %></p>
+                </div>
+                <div class="col-sm-4">
+                <p><%= data[i].number %></p>
+                </div>
+                <div class="col-sm-4">
+                <p><%= data[i].district %></p>
+                </div>
+                <div class="col-sm-4">
+                <p><%= data[i].city %></p>
+                </div>
+                <div class="col-sm-4">
+                <p><%= data[i].state %></p>
+                </div>
+                <div class="col-sm-4">
+                <p><%= data[i].postal_code %></p>
+                </div>
+                <div class="col-sm-4">
+                <p><%= data[i].itens.item1.nome %></p>
+                </div>
+                <div class="col-sm-4">
+                <p><%= data[i].method %></p>
+                </div>
+                <div class="col-sm-4">
+                <p><%= data[i].value %></p>
+                </div>
+            </div>
+        <% } %>
+    </section>
+
+    <% include ../componentes/catalogoFooter %>
+</body>
+</html>

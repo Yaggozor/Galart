@@ -11,14 +11,23 @@ TransacaoDAO.prototype.inserirTransacao = function (transacao) {
     });
 }
 
-TransacaoDAO.prototype.mostrarTransacao = function (data, res) {
+TransacaoDAO.prototype.mostrarTransacao = function (res) {
     this._conexao.open(function (err, mongoclient) {
         mongoclient.collection("transacoes", function (err, collection) {
-            if (data == null) {
-                collection.find().toArray(function (err, result) {
-                    res.render("admin/historico", { data: result });
-                });
-            }
+            collection.find().toArray(function (err, result) {
+                res.render("admin/historicoTransacao", { data: result });
+            });
+        });
+        mongoclient.close();
+    });
+}
+
+TransacaoDAO.prototype.mostrarCompra = function (res) {
+    this._conexao.open(function (err, mongoclient) {
+        mongoclient.collection("transacoes", function (err, collection) {
+            collection.find().toArray(function (err, result) {
+                res.render("cliente/historicoCompra", { data: result });
+            });
         });
         mongoclient.close();
     });
