@@ -7,52 +7,38 @@
 
     <% include ../componentes/catalogoClienteNavegacao %>
 
-    <section class="container" style="margin-top: 50px; min-height: 400px;">
+    <section class="container" style="margin-top: 50px; margin-bottom: 50px; min-height: 400px;">
         <h1>Histórico de Compras</h1>
         
         <% for(var i=0; i < data.length; i++){ %>
-            <div class="row" style="margin: 15px; padding: 15px; border: 1px solid #666; border-radius: 10px;">
-                <div class="col-sm-4">
-                <p>Cliente: <%= data[i].name %></p>
+            <div class="row" style="background-color: #fff; margin: 15px; padding: 15px; border: 1px solid #666; border-radius: 10px;">
+                
+                <div class="col-sm-12" style="margin-bottom: 15px; border-bottom: 1px solid #333;">
+                    <p>Código da Compra: #<%= data[i]._id %></p>
                 </div>
+                
+                <% for(var j=0; j < data[i].itens.length; j++){ %>
                 <div class="col-sm-4">
-                <p>E-mail: <%= data[i].email %></p>
+                    <p>Item <%= j+1 %>: <%= data[i].itens[j].nome %></p>
+                    <p>Preço: R$ <%= data[i].itens[j].preco %>,00</p>
                 </div>
-                <div class="col-sm-4">
-                <p><%= data[i].cpf_cnpj %></p>
+                <% } %>
+                <div class="col-sm-12" style="margin-bottom: 15px; border-bottom: 1px solid #333;">
+                    <p>Valor total da compra: <%= data[i].value %></p>
                 </div>
-                <div class="col-sm-4">
-                <p><%= data[i].area_code %></p>
+
+                <div class="col-sm-12">
+                    <p>Endereço: <%= data[i].street %>, <%= data[i].number %> - <%= data[i].district %></p>
                 </div>
-                <div class="col-sm-4">
-                <p><%= data[i].phone %></p>
+                <div class="col-sm-12">
+                    <p><%= data[i].city %> - <%= data[i].state %> - <%= data[i].postal_code %></p>
                 </div>
-                <div class="col-sm-4">
-                <p><%= data[i].street %></p>
+                <div class="col-sm-6">
+                    <p>Tel.: (<%= data[i].area_code %>) <%= data[i].phone %></p>
                 </div>
-                <div class="col-sm-4">
-                <p><%= data[i].number %></p>
-                </div>
-                <div class="col-sm-4">
-                <p><%= data[i].district %></p>
-                </div>
-                <div class="col-sm-4">
-                <p><%= data[i].city %></p>
-                </div>
-                <div class="col-sm-4">
-                <p><%= data[i].state %></p>
-                </div>
-                <div class="col-sm-4">
-                <p><%= data[i].postal_code %></p>
-                </div>
-                <div class="col-sm-4">
-                <p><%= data[i].itens.item1.nome %></p>
-                </div>
-                <div class="col-sm-4">
-                <p><%= data[i].method %></p>
-                </div>
-                <div class="col-sm-4">
-                <p><%= data[i].value %></p>
+
+                <div class="col-sm-6">
+                    <p>Forma de pagamento: <%= data[i].method %></p>
                 </div>
             </div>
         <% } %>

@@ -22,10 +22,10 @@ TransacaoDAO.prototype.mostrarTransacao = function (res) {
     });
 }
 
-TransacaoDAO.prototype.mostrarCompra = function (res) {
+TransacaoDAO.prototype.mostrarCompra = function (req, res) {
     this._conexao.open(function (err, mongoclient) {
         mongoclient.collection("transacoes", function (err, collection) {
-            collection.find().toArray(function (err, result) {
+            collection.find({ email : req.session.email }).toArray(function (err, result) {
                 res.render("cliente/historicoCompra", { data: result });
             });
         });

@@ -55,7 +55,6 @@ module.exports.pagamentoBoleto = (app, req, res) => {
         same_for_billing: true
     });
 
-    console.log(req.session.item);
     var itens = req.session.item;
     // colocar em loop
     for(var i=0; i < itens.length; i++){

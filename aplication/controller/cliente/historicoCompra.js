@@ -7,6 +7,6 @@ module.exports.index = (app, req, res) => {
     var conexao = app.dbConfig.database;
     var TransacaoDAO = new app.aplication.model.TransacaoDAO(conexao);
 
-    TransacaoDAO.mostrarCompra(res);
+    TransacaoDAO.mostrarCompra(req, res);
 
 }
