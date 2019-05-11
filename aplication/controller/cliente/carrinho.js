@@ -94,7 +94,7 @@ module.exports.pagamentoBoleto = (app, req, res) => {
         district: formData.bairro,
         city: formData.cidade,
         state: formData.estado,
-        postal_code: formData.cpf,
+        postal_code: formData.cep,
         itens: itens,
         method: "boleto",
         value: formData.total
