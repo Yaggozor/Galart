@@ -55,28 +55,21 @@ module.exports.pagamentoBoleto = (app, req, res) => {
         same_for_billing: true
     });
 
-    var itens = {
-        item1: {
-            nome: formData.item1nome,
-            preco: formData.item1preco
-        },
-        item2: {
-            nome: formData.item2nome,
-            preco: formData.item2preco
-        }
-    }
-
+    console.log(req.session.item);
+    var itens = req.session.item;
     // colocar em loop
-    pagSeguro.addItem({
-        qtde: 1,
-        value: parseFloat(itens.item1.preco),
-        description: itens.item1.nome
-    });
-    pagSeguro.addItem({
+    for(var i=0; i < itens.length; i++){
+        pagSeguro.addItem({
+            qtde: 1,
+            value: parseFloat(itens[i].preco),
+            description: itens[i].nome
+        });
+    }
+    /*pagSeguro.addItem({
         qtde: 1,
         value: parseFloat(itens.item2.preco),
         description: itens.item2.nome
-    });
+    });*/
 
     pagSeguro.sessionId(function (err, session_id) {
         console.log(session_id);
