@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<% include ../componentes/catalogoHead %>
+
+<body>
+
+    <% if(user[0] !== undefined) { %>
+        <% include ../componentes/catalogoClienteNavegacao %>
+    <% } else { %>
+        <% include ../componentes/catalogoNavegacao %>
+    <% } %>
+ 
+    <section class="container" style="margin-top: 50px">
+        <h1>Faça seu Pedido</h1>
+    </section>
+  
+    <% include ../componentes/catalogoFooter %>
+</body>
+</html>

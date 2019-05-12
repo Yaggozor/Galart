@@ -6,7 +6,12 @@
 body {
     background-color: #f8f8f8 !important;
 }
-
+.btn-azul {
+    color: #007BFF !important;
+}
+.btn-azul:hover {
+    color: #fff !important;
+}
 .btn-amarelo {
     background-color: rgba(255, 193, 22,0.8) !important;
 }
