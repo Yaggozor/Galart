@@ -1,3 +1,5 @@
+const validarCpf = require('validar-cpf');
+
 module.exports.index = (app, req, res) => {
     res.render("cliente/cadastro", { valid: {}, msg: {} });
 }
@@ -18,7 +20,13 @@ module.exports.inserindoCliente = (app, req, res) => {
     var error = req.validationErrors();
 
     if (error) {
+        console.log(error);
         res.render("cliente/cadastro", { valid: error, msg: {}, user: {} });
+        return;
+    }
+
+    if(!validarCpf(formData.cpf)){
+        res.render("cliente/cadastro", { valid: [{ param: 'cpf', msg: 'CPF informado é inválido', value: '' }], msg: {}, user: {} });
         return;
     }
 
