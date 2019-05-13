@@ -3,7 +3,7 @@
     padding: 0;
 }
 h1, h2, h3, h4, h5, h6, .cinzel {
-    font-family: 'Cinzel Decorative', cursive;
+    font-family: 'Cinzel Decorative', cursive !important;
 }
 body {
     background-color: #f8f8f8 !important;
@@ -16,6 +16,17 @@ body {
 }
 .btn-amarelo {
     background-color: rgba(255, 193, 22,0.8) !important;
+}
+.btn-pedido {
+    margin-top: 150px;
+    color: #fff !important;
+    border: 3px solid #fff !important;
+    font-size: 30px !important;
+    padding: 30px 100px !important;
+}
+.btn-pedido:hover {
+    background-color: #fff;
+    color: rgba(255, 193, 22,0.8) !important;
 }
 
 /* ====== Splash Screen ====== */
@@ -46,6 +57,32 @@ body {
 .navbar-nav a {
     padding: 0px 15px !important;
     color: #2c2c2c !important;
+}
+
+/* ====== Home ====== */
+.paralax {
+    margin-top: 70px;
+    margin-bottom: 70px;
+    height: 400px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.img1 {
+    background-image: url("/imgs/batman.jpg");
+    padding-top: 30px;
+}
+.mask {
+    background-color: rgba(0,0,0,.6);
+    z-index: 1;
+}
+.img2 {
+    background-image: url("/imgs/Img1.jpeg");
+}
+.home-sobre {
+    padding: 40px;
+    color: #fff;
 }
 
 /* ====== Catálogo ====== */
