@@ -35,6 +35,11 @@ module.exports.pagamentoBoleto = (app, req, res) => {
 
     var formData = req.body;
     var pagSeguro = app.pagSeguroConfig.pagSeguro;
+
+    var data = req.session.nascimento.split("-");
+
+    data = new Date(data[2], data[1], data[0]);
+    var dataFormatada = ("0" + data.getDate()).substr(-2) + "/" + ("0" + (data.getMonth() + 1)).substr(-2) + "/" + data.getFullYear(); 
     
     pagSeguro.setSender({
         name: req.session.nomecompleto,
@@ -42,7 +47,7 @@ module.exports.pagamentoBoleto = (app, req, res) => {
         cpf_cnpj: req.session.cpf,
         area_code: req.session.ddd,
         phone: req.session.telefone,
-        //birth_date: String //formato dd/mm/yyyy
+        birth_date: dataFormatada //formato dd/mm/yyyy
     });
 
     pagSeguro.setShipping({
