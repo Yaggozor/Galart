@@ -10,8 +10,58 @@
     <% include ../componentes/catalogoNavegacao %>
     <% } %>
     <section class="container" style="margin-top: 50px; min-height: 400px;">
+        
+        <div class="row" id="carousel">
+            <h1 class="mx-auto" style="padding: 0px 0px 20px;">Artes Destaque</h1>
+
+            <div id="carouselExampleSlidesOnly" class="carousel slide carousel-style" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <img class="img-fluid d-block w-100" src="imgs/Img8.jpeg" />
+                            </div>
+                            <div class="col-sm-4">
+                                <img class="img-fluid d-block w-100" src="imgs/Img9.jpeg" />
+                            </div>
+                            <div class="col-sm-4">
+                                <img class="img-fluid d-block w-100" src="imgs/Img10.jpeg" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <img class="img-fluid d-block w-100" src="imgs/Img11.jpeg" />
+                            </div>
+                            <div class="col-sm-4">
+                                <img class="img-fluid d-block w-100" src="imgs/Img12.jpeg" />
+                            </div>
+                            <div class="col-sm-4">
+                                <img class="img-fluid d-block w-100" src="imgs/Img2.jpeg" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <img class="img-fluid d-block w-100" src="imgs/Img3.jpeg" />
+                            </div>
+                            <div class="col-sm-4">
+                                <img class="img-fluid d-block w-100" src="imgs/Img4.jpeg" />
+                            </div>
+                            <div class="col-sm-4">
+                                <img class="img-fluid d-block w-100" src="imgs/Img5.jpeg" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
         <div class="row">
             <div class="container">
+                <hr style="margin: 50px 0px 30px;">
                 <form class="arte-filtro" id="arte-filtro" action="/catalogo" method="post">
                     <input id="filtro-busca" class="form-control" name="busca" type="text" placeholder="Buscar arte por nome..." />
                     <select id="filtro-categoria" class="form-control" name="categoria">
@@ -22,8 +72,14 @@
                     </select>
                     <button id="filtro-submit" class="btn btn-success" type="submit">Pesquisar</button>
                 </form>
+                <hr style="margin: 30px 0px 50px;">
             </div>
         </div>
+        
+        <div class="row">
+            <h1 class="mx-auto" style="padding: 0px 0px 20px;">Catálogo de Artes</h1>
+        </div>
+
         <div class="row">
         <% for(let i=0; i<data.length; i++){ %>
             <div class="col-sm-4">
