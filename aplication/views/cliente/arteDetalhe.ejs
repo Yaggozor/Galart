@@ -1,26 +1,36 @@
 <!DOCTYPE html>
 <html style="height: auto;" lang="pt-br">
 
-<% include ../componentes/head %>
+<% include ../componentes/catalogoHead %>
 
 <body style="height: auto;">
     <% var link; %>
     <% if(user !== null){ %>
     <% link = "carrinho"; %>
-    <% include ../componentes/clienteNavegacao %>
+    <% include ../componentes/catalogoClienteNavegacao %>
     <% } else { %>
     <% link = "login"; %>
-    <% include ../componentes/navegacao %>
+    <% include ../componentes/catalogoNavegacao %>
     <% } %>
-    <section class="container" style="min-height: 400px;">
+    <section class="container" style="max-width: 840px; margin-top: 60px; min-height: 400px;">
 
-        <div class="row" style="border: 1px solid #bababa; border-radius: 10px; margin: 50px 15px; padding: 15px 0px">
+        <% if(msg.length > 0){ %>
+            <div class="alert alert-success login-alert">
+                <strong>Atenção!</strong>
+                <ul>
+                    <li><%= msg %></li>
+                </ul>
+            </div>
+        <% } %>
+
+        <a href="/catalogo"><i class="fas fa-arrow-left" style="font-size: 30px; color: #000"></i></a>
+        <div class="row" style="border: 1px solid #bababa; border-radius: 10px; padding: 15px 0px">
             <div class="col-sm-4">
-                <img class="img-fluid" src="imgs/item 1.png" />
+                <img class="img-fluid" src="/imgs/<%= data[0].foto %>" />
             </div>
             <div class="col-sm-8">
                 <h1><%= data[0].nome %></h1>
-                <h4>R$ <%= data[0].preco %></h4>
+                <h4>R$ <%= data[0].preco %>,00</h4>
                 <p style="font-weight: 700; font-size: 14px">Tipo: <%= data[0].tipo %> - Tamanho: <%= data[0].tamanho %></p>
                 <p><%= data[0].descricao %></p>
                 <form action="/<%= link %>" method="post">
@@ -32,6 +42,6 @@
         
     </section>
 
-    <% include ../componentes/footer %>
+    <% include ../componentes/catalogoFooter %>
 </body>
 </html>

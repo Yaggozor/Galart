@@ -1,16 +1,35 @@
-*{
+* {
     margin: 0;
     padding: 0;
     font-family: 'Cinzel Decorative', cursive;
 }
-body{
+body {
     background-color: #f8f8f8 !important;
+}
+#splash {
+    position: absolute;
+    z-index: 99998;
+    background-color: #FDFDFD;
+    height: 100%;
+    width: 100%;
+}
+#splash #squig {
+    max-width: 200px;
+    display: block;
+    margin: 10% auto;
+}
+#splash #spinner {
+    width: 150px;
+    position: relative;
+    display: block;
+    margin: auto;
+    bottom: 30%;
 }
 .container2 {
     margin-left: 30%;
     margin-right: 10%;
 }
-.menu{
+.menu {
     width:300px;
     height:100%;
     background: #dadada;
@@ -21,59 +40,88 @@ body{
     box-shadow: 10px 0px 5px -4px rgba(0,0,0,0.75);
     z-index: 1;
 }
-nav li{
+nav li {
     list-style: none;
     text-decoration: none;
     text-align: justify;
     margin-left: 50px;
 }
-nav li a{
+nav li a {
     color: #2c2c2c;
-    font-size: 1.5em;
+    font-size: 1.3em;
     text-decoration: none;
 }
-nav ul{
-    margin-top: 110px;
+nav ul {
+    margin-top: 50px;
     width: 280px;
-    height: 240px;
 }
-.social-media a{
+.social-media a {
     color: #2c2c2c;
 }
-.busca{
-    background: url(imgs/lupa2.png)no-repeat center right;
-    padding: 5px;
-    border: none;
-    background-size: 30px;
-    width: 30px;
-    border-radius: 20px 20px ; 
-    -webkit-transition: all 2s linear;
-    transition: all 0.5s linear
+.carousel-inner {
+    height: 400px !important;
 }
-.busca:focus{
-    width: 180px;
-    border-top: 1px solid #2c2c2c;
-    border-bottom: 1px solid #2c2c2c;
-    outline: none;
-}
-.pesquisa{
-    margin-left: 65px;
-}
-.carousel-inner{
-    width: 1000px;
-    height: 500px;
-}
-.navbar-expand-lg{
+.navbar-expand-lg {
     display: none !important;
 }
-#check{
+#check {
     display: none;
 }
+.card-img-style {
+    max-height: 200px;
+}
+.card-body-style {
+    background-color: #fff;
+}
+.Menu-Perfil {
+    background-color: white;   
+    height: 497px;   
+    border-radius: 10px 0px 20px 20px;
+    position: relative;
+    border: 1px solid gray;
+    border-radius: 20px 20px 0 0 ;
+}
+.itensPerfil {
+    height: 100px;
+    border-bottom: 0.5px solid gray;
+    text-align: justify;
+    padding:2px 2px;
+    text-align: center;
+    padding: 2px;
+}
+.itensPerfil-Ative {
+    background-color: white;
+    text-align: center;
+    padding-top:10px;
+    padding-bottom: 5px;
+    color: gray;
+    border: 1px solid gray;
+    border-radius: 20px;
+}
+.Perfil {
+    padding-top: 20px;
+}
+.iconPer {
+    width: 150px;
+    height: 150px;
+    border-radius: 360px;
+    border: 1px solid gray;
+    z-index: 1 !important;
+}
+#editPerfilForm {
+    height: 850px;
+    background: rgb(204, 204, 204);
+    position: relative;
+    top:2%;
+    margin-top: 5%;
+    border-radius: 10px;
+}
+
 /**Adaptação para as telas **/
-.mobile{
+.mobile {
     display: none;
 }
-.login{
+.login {
     max-width: 400px;
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
     background-color: #f8f8f8;
@@ -83,156 +131,111 @@ nav ul{
     margin: 80px auto 0px auto;
     opacity: 0.9;
 }
-@media (max-width:1024px) {
-.container2 {
-    margin-left: 10%;
-    margin-right: 10%;
-}
-.menu{
-    display:none !important;
-}
-.carousel-inner{
-    margin-top: 100px;
-    z-index: 0;
-    position: relative;
-}
-.navbar-expand-lg{
-     background: #dadada !important;
-     position: fixed !important;
-     width: 100%;
-    top: 0 !important;
-box-shadow: -1px 8px 15px -1px rgba(0,0,0,0.75);
-z-index: 2;
-display:  block !important;
-}
-.iconMenu{
-    position: absolute;
-    cursor:pointer;
-}
-.fa-bars{
-    margin-left: 20px;
-    padding: 5px;
-}
-.mobile{
-    width:400px;
-    height:100%;
-    background: #dadada;
-    position: absolute;
-    top: 50px;
-    margin-left: -400px;
-    z-index: 20;
-    transition: all 2s linear;  
-    display: block;
-
-}
-nav li{
-    margin-top: 50px ;
-    list-style: none;
-    text-decoration: none;
-    text-align: center;
-    margin-left: 80px !important;
-    position: absolute;
-}
-nav li a{
-
-color: #2c2c2c;
-font-size: 1.5em;
-text-decoration: none;
-}
-nav ul{
-    margin-top: 100px;
-    margin-left: 50px;
-}
-.busca{
-    background: url(imgs/lupa2.png)no-repeat center right;
-    padding: 5px;
-    border: none;
-    background-size: 30px;
-    width: 30px;
-    border-radius: 20px 20px ; 
-    -webkit-transition: all 2s linear;
-    transition: all 0.5s linear;
-}
-.busca:focus{
-width: 80%;
-border-top: 1px solid #2c2c2c;
-border-bottom: 1px solid #2c2c2c;
-outline: none;
-}
-.pesquisa{
-    margin-top: 80px;
-    position: center;
-    position: relative;
-}
-#check:checked ~ .mobile{
-    transform: translateX(400px);
-    border: 1px solid red;
-    z-index: 80;
-}
-.title{
-    margin-top: 50px;
-
-}
-.navbar-nav a{
-     margin-left: 70px;
-    font-size: 20px;
-    color: black !important;
-}
-.navbar-nav a:hover{
-    color: gray !important;
-}
-.navbar-nav{
-    margin-top: 50px;
-    height: 100%!important;
-}
-}
-@media (min-width:1024px){
-.navbar-nav{
-    height: 10px!important;
-    margin-left: 2%;
-
-}
-.navbar-nav a{
-    margin-top: -40px;
-    position: relative;
-    
-
-}
-.navbar-nav i {
-    margin-left: -50px;
-}
-.pesquisa{
-    margin-top: -35px;
-    left: -80px;
-}
-.busca:focus{
-    width: 200px;
-}
-}
-@media (min-width:640px)and (max-width:1024px){
-    .procurar{
-        margin-top: -500px!important;
-        
-    }
-
-}
-@media (max-width:640px) {
-    .login{
-        padding: 60px 20px;
-    }
-
-}
-.btn-amarelo{
+.btn-amarelo {
     background-color: rgba(255, 193, 22,0.8) !important;
 }
 
-/*@media (min-width:1400px) and (max-width:1440px) {
-    .pesquisa{
-        left: 10px;
+@media (max-width:1024px) {
+    .container2 {
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+    .menu {
+        display:none !important;
+    }
+    .carousel-inner {
+        margin-top: 100px;
+        z-index: 0;
+        position: relative;
+    }
+    .navbar-expand-lg {
+        background: #dadada !important;
+        position: fixed !important;
+        width: 100%;
+        top: 0 !important;
+        box-shadow: -1px 8px 15px -1px rgba(0,0,0,0.75);
+        z-index: 2;
+        display:  block !important;
+    }
+    .iconMenu {
+        position: absolute;
+        cursor:pointer;
+    }
+    .fa-bars {
+        margin-left: 20px;
+        padding: 5px;
+    }
+    .mobile {
+        width:400px;
+        height:100%;
+        background: #dadada;
+        position: absolute;
+        top: 50px;
+        margin-left: -400px;
+        z-index: 20;
+        transition: all 2s linear;  
+        display: block;
+    }
+    nav li {
+        margin-top: 50px ;
+        list-style: none;
+        text-decoration: none;
+        text-align: center;
+        margin-left: 80px !important;
+        position: absolute;
+    }
+    nav li a {
+        color: #2c2c2c;
+        font-size: 1.5em;
+        text-decoration: none;
+    }
+    nav ul {
+        margin-top: 100px;
+        margin-left: 50px;
+    }
+    #check:checked ~ .mobile {
+        transform: translateX(400px);
+        border: 1px solid red;
+        z-index: 80;
+    }
+    .title {
+        margin-top: 50px;
+    }
+    .navbar-nav a {
+        margin-left: 70px;
+        font-size: 20px;
+        color: black !important;
+    }
+    .navbar-nav a:hover {
+        color: gray !important;
+    }
+    .navbar-nav {
+        margin-top: 50px;
+        height: 100%!important;
     }
 }
-@media (min-width:1480px) and (max-width:1680px) {
-    .pesquisa{
-        left: 30px;
+
+@media (min-width:1024px) {
+    .navbar-nav {
+        height: 10px!important;
+        margin-left: 2%;
     }
-}*/
+    .navbar-nav a {
+        margin-top: -40px;
+        position: relative;
+    }
+    .navbar-nav i {
+        margin-left: -50px;
+    }
+}
+
+@media (min-width:640px) and (max-width:1024px) {
+    .procurar {
+        margin-top: -500px!important;        
+    }
+}
+@media (max-width:640px) {
+    .login {
+        padding: 60px 20px;
+    }
+}

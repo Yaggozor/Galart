@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<% include ../componentes/catalogoHead %>
+
+<body>
+
+    <% if(user[0] !== undefined) { %>
+        <% include ../componentes/catalogoClienteNavegacao %>
+    <% } else { %>
+        <% include ../componentes/catalogoNavegacao %>
+    <% } %>
+ 
+    <section class="container" style="margin-top: 50px; min-height: 500px;">
+        
+        <h1>Faça seu Pedido</h1>
+
+        <% if(valid.length > 0){ %>
+            <div class="alert alert-danger login-alert">
+                <strong>Atenção!</strong>
+                <ul>
+                    <% for(var i=0; i < valid.length; i++){ %>
+                        <li><%= valid[i].msg %></li>
+                    <% } %>
+                </ul>
+            </div>
+        <% } %>
+
+        <% if(msg.length > 0){ %>
+            <div class="alert alert-success login-alert">
+                <strong>Atenção!</strong>
+                <ul>
+                    <li><%= msg %></li>
+                </ul>
+            </div>
+        <% } %>
+
+        <div class="row">
+            <div class="col-sm-4">
+                <img id="foto-thumbnail" class="img-fluid" src="">
+            </div>
+            <div class="col-sm-8">
+                <form action="/pedidos" method="post">
+                    <div class="form-group">
+                        <label for="nome">Nome:</label>
+                        <input type="text" class="form-control" id="nome" name="nome" placeholder="Digite seu nome..." />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">E-mail:</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Digite seu email..." />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="descricao">Descreva seu pedido:</label>
+                        <textarea class="form-control" id="descricao" rows="4" name="descricao"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="imagem">Se quiser, adicione uma imagem de exemplo:</label>
+                        <input type="file" class="form-control-file" id="imagem" name="imagem" />
+                    </div>
+
+                    <button class="btn btn-success right" type="submit">Confirmar</button>
+                </form>
+            </div>    
+        </div> <!-- end row -->
+
+    </section>
+
+    <script>
+    $("#imagem").on("change", function(){
+        var img = $(this).val();
+        img = img.split("\\");
+        console.log(img);
+        $("#foto-thumbnail").attr("src", "/imgs/" + img[2]);
+    });
+    </script>
+  
+    <% include ../componentes/catalogoFooter %>
+</body>
+</html>

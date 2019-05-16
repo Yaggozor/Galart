@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html style="height: auto;" lang="pt-br">
 
-    <% include ../componentes/head %>
+    <% include ../componentes/catalogoHead %>
 
     <body>
       
       <% if(user[0] !== undefined) { %>
-      <% include ../componentes/clienteNavegacao %>
+      <% include ../componentes/catalogoClienteNavegacao %>
       <% } else { %>
-      <% include ../componentes/navegacao %>
+      <% include ../componentes/catalogoNavegacao %>
       <% } %>
      
-      <section class="container2" style="margin-top: 100px;">
+      <section class="container" style="margin-top: 50px;">
         <h2 class="title">Sobre a Artista</h2>
         <hr>
         <br>
         <div class="card mb-3">
           <img class="card-img-top" src="imgs\emy.png" alt="Imagem de capa do card">
           <div class="card-body">
-            <h5 class="card-title">Título do card</h5>
+            <h1 class="card-title">Emily Matsukura</h1>
             <p class="card-text">
               Brasileira com coração Japonês,
               aprendi maior parte de minhas técnicas em minha antiga escola no Japão.
@@ -26,12 +26,21 @@
             <p>
               Vim para o Brasil com uma bolsa na academia Quanta e me dedico a freelas e estúdios.
             </p>
+            <hr>
+            <h3>Contato</h3>
+            <p>E-mail: galart.ecommerce@gmail.com</p>
+            <p>Redes Sociais:</p>
+            <div class="social-media">
+              <a href="#"><i class="fab fa-twitter fa-2x"></i></a>
+              <a href="https://www.facebook.com/Galart-2293951957296205/"><i class="fab fa-facebook-square fa-2x"></i></a>
+              <a href="https://www.instagram.com/emytsukura/"><i class="fab fa-instagram fa-2x"></i></a>
+            </div>
           </div>
         </div>
       </section>
     
     
-    <% include ../componentes/footer %>
+    <% include ../componentes/catalogoFooter %>
 
 </body>
 </html>

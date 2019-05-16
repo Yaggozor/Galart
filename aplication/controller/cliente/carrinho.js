@@ -35,6 +35,11 @@ module.exports.pagamentoBoleto = (app, req, res) => {
 
     var formData = req.body;
     var pagSeguro = app.pagSeguroConfig.pagSeguro;
+
+    var data = req.session.nascimento.split("-");
+
+    data = new Date(data[2], data[1], data[0]);
+    var dataFormatada = ("0" + data.getDate()).substr(-2) + "/" + ("0" + (data.getMonth() + 1)).substr(-2) + "/" + data.getFullYear(); 
     
     pagSeguro.setSender({
         name: req.session.nomecompleto,
@@ -42,7 +47,7 @@ module.exports.pagamentoBoleto = (app, req, res) => {
         cpf_cnpj: req.session.cpf,
         area_code: req.session.ddd,
         phone: req.session.telefone,
-        //birth_date: String //formato dd/mm/yyyy
+        birth_date: dataFormatada //formato dd/mm/yyyy
     });
 
     pagSeguro.setShipping({
@@ -55,28 +60,20 @@ module.exports.pagamentoBoleto = (app, req, res) => {
         same_for_billing: true
     });
 
-    var itens = {
-        item1: {
-            nome: formData.item1nome,
-            preco: formData.item1preco
-        },
-        item2: {
-            nome: formData.item2nome,
-            preco: formData.item2preco
-        }
-    }
-
+    var itens = req.session.item;
     // colocar em loop
-    pagSeguro.addItem({
-        qtde: 1,
-        value: parseFloat(itens.item1.preco),
-        description: itens.item1.nome
-    });
-    pagSeguro.addItem({
+    for(var i=0; i < itens.length; i++){
+        pagSeguro.addItem({
+            qtde: 1,
+            value: parseFloat(itens[i].preco),
+            description: itens[i].nome
+        });
+    }
+    /*pagSeguro.addItem({
         qtde: 1,
         value: parseFloat(itens.item2.preco),
         description: itens.item2.nome
-    });
+    });*/
 
     pagSeguro.sessionId(function (err, session_id) {
         console.log(session_id);
@@ -102,7 +99,7 @@ module.exports.pagamentoBoleto = (app, req, res) => {
         district: formData.bairro,
         city: formData.cidade,
         state: formData.estado,
-        postal_code: formData.cpf,
+        postal_code: formData.cep,
         itens: itens,
         method: "boleto",
         value: formData.total
