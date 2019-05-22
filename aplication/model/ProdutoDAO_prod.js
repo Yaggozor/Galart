@@ -7,7 +7,7 @@ function ProdutoDAO() {}
 ProdutoDAO.prototype.inserirProduto = function (produto) {
     const url = process.env.MONGODB_URI;
     const dbName = 'galart';
-    const client = new MongoClient(url);
+    const client = new MongoClient(url, { useNewUrlParser: true });
 
     client.connect(function (err) {
         assert.equal(null, err);
@@ -29,7 +29,6 @@ ProdutoDAO.prototype.mostrarProduto = function (data, res, admin, user) {
 
     client.connect(function (err) {
         //assert.equal(null, err);
-        console.log(client);
         const db = client.db(dbName);
         const collection = db.collection('produtos');
 

@@ -18,8 +18,9 @@ module.exports.inserindoAdmin = (app, req, res) => {
         return;
     }
 
-    var conexao = app.dbConfig.database;
-    var AdminDAO = new app.aplication.model.AdminDAO(conexao);
+    //var conexao = app.dbConfig.database;
+    //var AdminDAO = new app.aplication.model.AdminDAO(conexao);
+    var AdminDAO = new app.aplication.model.AdminDAO_prod();
 
     AdminDAO.inserirAdmin(formData);
 
