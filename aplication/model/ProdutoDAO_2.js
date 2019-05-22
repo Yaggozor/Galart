@@ -29,6 +29,7 @@ ProdutoDAO.prototype.mostrarProduto = function (data, res, admin, user) {
 
     client.connect(function (err) {
         //assert.equal(null, err);
+        console.log(client);
         const db = client.db(dbName);
         const collection = db.collection('produtos');
 
