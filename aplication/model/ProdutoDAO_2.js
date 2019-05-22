@@ -5,7 +5,7 @@ const ObjectID = require("mongodb").ObjectId;
 function ProdutoDAO() {}
 
 ProdutoDAO.prototype.inserirProduto = function (produto) {
-    const url = process.env.MONGODB_LOCAL_URI;
+    const url = process.env.MONGODB_URI;
     const dbName = 'galart';
     const client = new MongoClient(url);
 
@@ -23,9 +23,9 @@ ProdutoDAO.prototype.inserirProduto = function (produto) {
 }
 
 ProdutoDAO.prototype.mostrarProduto = function (data, res, admin, user) {
-    const url = process.env.MONGODB_LOCAL_URI;
+    const url = process.env.MONGODB_URI;
     const dbName = 'galart';
-    const client = new MongoClient(url);
+    const client = new MongoClient(url, { useNewUrlParser: true });
 
     client.connect(function (err) {
         //assert.equal(null, err);
@@ -59,7 +59,7 @@ ProdutoDAO.prototype.mostrarProduto = function (data, res, admin, user) {
 }
 
 ProdutoDAO.prototype.filtrarProduto = function (data, res, admin, user) {
-    const url = process.env.MONGODB_LOCAL_URI;
+    const url = process.env.MONGODB_URI;
     const dbName = 'galart';
     const client = new MongoClient(url);
 
@@ -93,7 +93,7 @@ ProdutoDAO.prototype.filtrarProduto = function (data, res, admin, user) {
 }
 
 ProdutoDAO.prototype.atualizarProduto = function (data) {
-    const url = process.env.MONGODB_LOCAL_URI;
+    const url = process.env.MONGODB_URI;
     const dbName = 'galart';
     const client = new MongoClient(url);
 
@@ -119,7 +119,7 @@ ProdutoDAO.prototype.atualizarProduto = function (data) {
 }
 
 ProdutoDAO.prototype.excluirProduto = function (data, res) {
-    const url = process.env.MONGODB_LOCAL_URI;
+    const url = process.env.MONGODB_URI;
     const dbName = 'galart';
     const client = new MongoClient(url);
 
@@ -138,7 +138,7 @@ ProdutoDAO.prototype.excluirProduto = function (data, res) {
 }
 
 ProdutoDAO.prototype.addProdutoCarrinho = function (data, res, admin, user) {
-    const url = process.env.MONGODB_LOCAL_URI;
+    const url = process.env.MONGODB_URI;
     const dbName = 'galart';
     const client = new MongoClient(url);
 
