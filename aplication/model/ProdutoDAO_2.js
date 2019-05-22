@@ -28,7 +28,7 @@ ProdutoDAO.prototype.mostrarProduto = function (data, res, admin, user) {
     const client = new MongoClient(url);
 
     client.connect(function (err) {
-        assert.equal(null, err);
+        //assert.equal(null, err);
         const db = client.db(dbName);
         const collection = db.collection('produtos');
 
