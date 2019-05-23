@@ -8,6 +8,7 @@ ProdutoDAO.prototype.inserirProduto = function (produto, res) {
     const url = process.env.MONGODB_URI;
     const dbName = 'galart';
     const client = new MongoClient(url, { useNewUrlParser: true });
+    console.log("-> "+produto);
     console.log("teste1");
     client.connect(function (err) {
         //assert.equal(null, err);
