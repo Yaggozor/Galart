@@ -15,7 +15,9 @@ ProdutoDAO.prototype.inserirProduto = function (produto) {
         const collection = db.collection('produtos');
 
         collection.insertMany(produto, function (err, result) {
-            //assert.equal(err, null);    
+            //assert.equal(err, null);
+            console.log(result);
+            console.log(err);
         });
 
         client.close();
