@@ -136,8 +136,9 @@ ProdutoDAO.prototype.excluirProduto = function (data, res) {
         const db = client.db(dbName);
         const collection = db.collection('produtos');
 
-        collection.deleteOne(data, function (err, result) {
-            //assert.equal(err, null);
+        collection.deleteOne({ _id: ObjectID(data._id) });
+
+        collection.find().toArray(function (err, result) {
             res.render("admin/listaProdutos", { data: result, user: {} });
         });
 
