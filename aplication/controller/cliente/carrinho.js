@@ -21,8 +21,9 @@ module.exports.addCarrinho = (app, req, res) => {
     var formData = req.body;
     var user = req.session.nome;
 
-    var conexao = app.dbConfig.database;
-    var ProdutoDAO = new app.aplication.model.ProdutoDAO(conexao);
+    //var conexao = app.dbConfig.database;
+    //var ProdutoDAO = new app.aplication.model.ProdutoDAO(conexao);
+    var ProdutoDAO = new app.aplication.model.ProdutoDAO_prod();
 
     ProdutoDAO.addProdutoCarrinho(formData, req, res, user);
 }
@@ -69,14 +70,9 @@ module.exports.pagamentoBoleto = (app, req, res) => {
             description: itens[i].nome
         });
     }
-    /*pagSeguro.addItem({
-        qtde: 1,
-        value: parseFloat(itens.item2.preco),
-        description: itens.item2.nome
-    });*/
 
     pagSeguro.sessionId(function (err, session_id) {
-        console.log(session_id);
+        //console.log(session_id);
     });
 
     pagSeguro.sendTransaction({
@@ -85,7 +81,7 @@ module.exports.pagamentoBoleto = (app, req, res) => {
         installments: 1, //opcional, padrão 1
         //hash: String //senderHash gerado pela biblioteca do PagSeguro
     }, function (err, data) {
-        console.log(data);
+        //console.log(data);
     });
 
     const order = {
@@ -105,8 +101,9 @@ module.exports.pagamentoBoleto = (app, req, res) => {
         value: formData.total
     }
 
-    var conexao = app.dbConfig.database;
-    var TransacaoDAO = new app.aplication.model.TransacaoDAO(conexao);
+    //var conexao = app.dbConfig.database;
+    //var TransacaoDAO = new app.aplication.model.TransacaoDAO(conexao);
+    var TransacaoDAO = new app.aplication.model.TransacaoDAO_prod();
 
     TransacaoDAO.inserirTransacao(order);
     

@@ -30,8 +30,9 @@ module.exports.inserindoCliente = (app, req, res) => {
         return;
     }
 
-    var conexao = app.dbConfig.database;
-    var ClienteDAO = new app.aplication.model.ClienteDAO(conexao);
+    //var conexao = app.dbConfig.database;
+    //var ClienteDAO = new app.aplication.model.ClienteDAO(conexao);
+    var ClienteDAO = new app.aplication.model.ClienteDAO_prod();
 
     ClienteDAO.inserirCliente(formData);
 

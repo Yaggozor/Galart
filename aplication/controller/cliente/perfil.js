@@ -4,8 +4,9 @@ module.exports.index = (app, req, res) => {
         return;
     }
 
-    var conexao = app.dbConfig.database;
-    var ClienteDAO = new app.aplication.model.ClienteDAO(conexao);
+    //var conexao = app.dbConfig.database;
+    //var ClienteDAO = new app.aplication.model.ClienteDAO(conexao);
+    var ClienteDAO = new app.aplication.model.ClienteDAO_prod();
 
     var formData = null
     var id = req.session._id;
@@ -19,8 +20,9 @@ module.exports.editarPerfil = (app, req, res) => {
         return;
     }
 
-    var conexao = app.dbConfig.database;
-    var ClienteDAO = new app.aplication.model.ClienteDAO(conexao);
+    //var conexao = app.dbConfig.database;
+    //var ClienteDAO = new app.aplication.model.ClienteDAO(conexao);
+    var ClienteDAO = new app.aplication.model.ClienteDAO_prod();
 
     var formData = req.body;
     var id = req.session._id;

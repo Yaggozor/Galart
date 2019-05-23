@@ -15,8 +15,9 @@ module.exports.autenticacao = (app, req, res) => {
         res.render("cliente/login", { valid: error, msg: {} });
     }
 
-    var conexao = app.dbConfig.database;
-    var ClienteDAO = new app.aplication.model.ClienteDAO(conexao);
+    //var conexao = app.dbConfig.database;
+    //var ClienteDAO = new app.aplication.model.ClienteDAO(conexao);
+    var ClienteDAO = new app.aplication.model.ClienteDAO_prod();
 
     ClienteDAO.autenticar(formData, req, res);
 }
