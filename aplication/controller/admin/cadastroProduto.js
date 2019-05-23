@@ -30,7 +30,5 @@ module.exports.inserindoProduto = (app, req, res)=>{
     //var ProdutoDAO = new app.aplication.model.ProdutoDAO(conexao);
     var ProdutoDAO = new app.aplication.model.ProdutoDAO_prod();
 
-    ProdutoDAO.inserirProduto(formData);
-    
-    res.render("admin/cadastroProduto", { valid: {}, msg: "Arte cadastrada com sucesso" });
+    ProdutoDAO.inserirProduto(formData, res);
 }

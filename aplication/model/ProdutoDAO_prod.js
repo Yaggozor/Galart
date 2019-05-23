@@ -4,7 +4,7 @@ const ObjectID = require("mongodb").ObjectId;
 
 function ProdutoDAO() {}
 
-ProdutoDAO.prototype.inserirProduto = function (produto) {
+ProdutoDAO.prototype.inserirProduto = function (produto, res) {
     const url = process.env.MONGODB_URI;
     const dbName = 'galart';
     const client = new MongoClient(url, { useNewUrlParser: true });
@@ -18,6 +18,12 @@ ProdutoDAO.prototype.inserirProduto = function (produto) {
             //assert.equal(err, null);
             console.log(result);
             console.log(err);
+            if(result){
+                res.render("admin/cadastroProduto", { valid: {}, msg: "Arte cadastrada com sucesso" });
+            }
+            else{
+                res.render("admin/cadastroProduto", { valid: "Problema no cadastro da Arte", msg: {} });
+            }
         });
 
         client.close();
