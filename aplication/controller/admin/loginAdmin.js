@@ -15,8 +15,9 @@ module.exports.autenticacao = (app, req, res) => {
         res.render("admin/loginAdmin", { valid: error, msg: {} });
     }
 
-    var conexao = app.dbConfig.database;
-    var AdminDAO = new app.aplication.model.AdminDAO(conexao);
+    //var conexao = app.dbConfig.database;
+    //var AdminDAO = new app.aplication.model.AdminDAO(conexao);
+    var AdminDAO = new app.aplication.model.AdminDAO_prod();
 
     AdminDAO.autenticar(formData, req, res);
 }
