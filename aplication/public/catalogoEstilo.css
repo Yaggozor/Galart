@@ -31,7 +31,7 @@ body {
 
 /* ====== Splash Screen ====== */
 #splash {
-    position: absolute;
+    position: fixed;
     z-index: 99998;
     background-color: #FDFDFD;
     height: 100%;
