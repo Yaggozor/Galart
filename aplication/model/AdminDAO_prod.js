@@ -5,6 +5,30 @@ var crypto = require("crypto");
 
 function AdminDAO() {}
 
+AdminDAO.prototype.mostrarAdmin = function (data, res) {
+    const url = process.env.MONGODB_URI;
+    const dbName = 'galart';
+    const client = new MongoClient(url, { useNewUrlParser: true });
+
+    client.connect(function (err) {
+        //assert.equal(null, err);
+        const db = client.db(dbName);
+        const collection = db.collection('admins');
+
+        if (data == null) {
+            collection.find().toArray(function (err, result) {
+                res.render("admin/listaAdmin", { data: result });
+            });
+        } else {
+            collection.find({ _id: ObjectID(data._id) }).toArray(function (err, result) {
+                res.render("admin/edicaoAdmin", { data: result });
+            });
+        }
+
+        client.close();
+    });
+}
+
 AdminDAO.prototype.autenticar = function (user, req, res) {
     const url = process.env.MONGODB_URI;
     const dbName = 'galart';
