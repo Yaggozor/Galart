@@ -61,7 +61,7 @@ ProdutoDAO.prototype.mostrarProduto = function (data, res, admin, user) {
 ProdutoDAO.prototype.filtrarProduto = function (data, res, admin, user) {
     const url = process.env.MONGODB_URI;
     const dbName = 'galart';
-    const client = new MongoClient(url);
+    const client = new MongoClient(url, { useNewUrlParser: true });
 
     client.connect(function (err) {
         assert.equal(null, err);
@@ -95,7 +95,7 @@ ProdutoDAO.prototype.filtrarProduto = function (data, res, admin, user) {
 ProdutoDAO.prototype.atualizarProduto = function (data) {
     const url = process.env.MONGODB_URI;
     const dbName = 'galart';
-    const client = new MongoClient(url);
+    const client = new MongoClient(url, { useNewUrlParser: true });
 
     client.connect(function (err) {
         assert.equal(null, err);
@@ -121,7 +121,7 @@ ProdutoDAO.prototype.atualizarProduto = function (data) {
 ProdutoDAO.prototype.excluirProduto = function (data, res) {
     const url = process.env.MONGODB_URI;
     const dbName = 'galart';
-    const client = new MongoClient(url);
+    const client = new MongoClient(url, { useNewUrlParser: true });
 
     client.connect(function (err) {
         assert.equal(null, err);
@@ -140,7 +140,7 @@ ProdutoDAO.prototype.excluirProduto = function (data, res) {
 ProdutoDAO.prototype.addProdutoCarrinho = function (data, res, admin, user) {
     const url = process.env.MONGODB_URI;
     const dbName = 'galart';
-    const client = new MongoClient(url);
+    const client = new MongoClient(url, { useNewUrlParser: true });
 
     client.connect(function (err) {
         assert.equal(null, err);

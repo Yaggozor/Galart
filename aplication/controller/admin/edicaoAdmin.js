@@ -6,8 +6,9 @@ module.exports.index = (app, req, res) => {
 
     var formData = req.body;
 
-    var conexao = app.dbConfig.database;
-    var AdminDAO = new app.aplication.model.AdminDAO(conexao);
+    //var conexao = app.dbConfig.database;
+    //var AdminDAO = new app.aplication.model.AdminDAO(conexao);
+    var AdminDAO = new app.aplication.model.AdminDAO_prod();
 
     AdminDAO.mostrarAdmin(formData, res);
 
@@ -17,8 +18,9 @@ module.exports.editandoAdmin = (app, req, res) => {
 
     var formData = req.body;
 
-    var conexao = app.dbConfig.database;
-    var AdminDAO = new app.aplication.model.AdminDAO(conexao);
+    //var conexao = app.dbConfig.database;
+    //var AdminDAO = new app.aplication.model.AdminDAO(conexao);
+    var AdminDAO = new app.aplication.model.AdminDAO_prod();
     
     AdminDAO.atualizarAdmin(formData);
 
