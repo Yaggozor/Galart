@@ -61,9 +61,11 @@ AdminDAO.prototype.atualizarAdmin = function (data) {
         collection.updateOne(
             { _id: ObjectID(data._id) },
             {
-                nomeadmin: data.nomeadmin,
-                emailadmin: data.emailadmin,
-                senhaadmin: data.senhaadmin
+                $set: {
+                    nomeadmin: data.nomeadmin,
+                    emailadmin: data.emailadmin,
+                    senhaadmin: data.senhaadmin
+                }
             }
         );
 
@@ -102,6 +104,25 @@ AdminDAO.prototype.autenticar = function (user, req, res) {
     });
 }
 
+AdminDAO.prototype.excluirAdmin = function (data, res) {
+    const url = process.env.MONGODB_URI;
+    const dbName = 'galart';
+    const client = new MongoClient(url, { useNewUrlParser: true });
+
+    client.connect(function (err) {
+        //assert.equal(null, err);
+        const db = client.db(dbName);
+        const collection = db.collection('admins');
+    
+        collection.deleteOne({ _id: ObjectID(data._id) });
+
+        collection.find().toArray(function (err, result) {
+            res.render("admin/listaAdmin", { data: result });
+        });
+
+        client.close();
+    });
+}
 
 /*AdminDAO.prototype.inserirAdmin = function (usuario) {
     this._conexao.open(function (err, mongoclient) {
