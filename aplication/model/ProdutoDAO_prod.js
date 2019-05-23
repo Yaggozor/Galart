@@ -8,21 +8,23 @@ ProdutoDAO.prototype.inserirProduto = function (produto, res) {
     const url = process.env.MONGODB_URI;
     const dbName = 'galart';
     const client = new MongoClient(url, { useNewUrlParser: true });
-
+    console.log("teste1");
     client.connect(function (err) {
         //assert.equal(null, err);
         const db = client.db(dbName);
         const collection = db.collection('produtos');
-
+        console.log("teste2");
         collection.insertMany(produto, function (err, result) {
             //assert.equal(err, null);
             console.log(result);
             console.log(err);
             if(result){
-                res.render("admin/cadastroProduto", { valid: {}, msg: "Arte cadastrada com sucesso" });
+                console.log("result");
+                //res.render("admin/cadastroProduto", { valid: {}, msg: "Arte cadastrada com sucesso" });
             }
             else{
-                res.render("admin/cadastroProduto", { valid: "Problema no cadastro da Arte", msg: {} });
+                console.log("error");
+                //res.render("admin/cadastroProduto", { valid: "Problema no cadastro da Arte", msg: {} });
             }
         });
 
