@@ -111,12 +111,14 @@ ProdutoDAO.prototype.atualizarProduto = function (data) {
         collection.updateOne(
             { _id: ObjectID(data._id) },
             {
-                nome: data.nome,
-                tipo: data.tipo,
-                foto: data.foto,
-                tamanho: data.tamanho,
-                preco: data.preco,
-                descricao: data.descricao
+                $set: {
+                    nome: data.nome,
+                    tipo: data.tipo,
+                    foto: data.foto,
+                    tamanho: data.tamanho,
+                    preco: data.preco,
+                    descricao: data.descricao
+                }
             }
         );
 
