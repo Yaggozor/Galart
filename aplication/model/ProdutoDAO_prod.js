@@ -10,12 +10,12 @@ ProdutoDAO.prototype.inserirProduto = function (produto) {
     const client = new MongoClient(url, { useNewUrlParser: true });
 
     client.connect(function (err) {
-        assert.equal(null, err);
+        //assert.equal(null, err);
         const db = client.db(dbName);
         const collection = db.collection('produtos');
 
         collection.insertMany(produto, function (err, result) {
-            assert.equal(err, null);    
+            //assert.equal(err, null);    
         });
 
         client.close();
@@ -64,7 +64,7 @@ ProdutoDAO.prototype.filtrarProduto = function (data, res, admin, user) {
     const client = new MongoClient(url, { useNewUrlParser: true });
 
     client.connect(function (err) {
-        assert.equal(null, err);
+        //assert.equal(null, err);
         const db = client.db(dbName);
         const collection = db.collection('produtos');
 
@@ -98,7 +98,7 @@ ProdutoDAO.prototype.atualizarProduto = function (data) {
     const client = new MongoClient(url, { useNewUrlParser: true });
 
     client.connect(function (err) {
-        assert.equal(null, err);
+        //assert.equal(null, err);
         const db = client.db(dbName);
         const collection = db.collection('produtos');
 
@@ -124,12 +124,12 @@ ProdutoDAO.prototype.excluirProduto = function (data, res) {
     const client = new MongoClient(url, { useNewUrlParser: true });
 
     client.connect(function (err) {
-        assert.equal(null, err);
+        //assert.equal(null, err);
         const db = client.db(dbName);
         const collection = db.collection('produtos');
 
         collection.deleteOne({ a: 3 }, function (err, result) {
-            assert.equal(err, null);
+            //assert.equal(err, null);
             res.render("admin/listaProdutos", { data: result, user: {} });
         });
 
@@ -143,7 +143,7 @@ ProdutoDAO.prototype.addProdutoCarrinho = function (data, res, admin, user) {
     const client = new MongoClient(url, { useNewUrlParser: true });
 
     client.connect(function (err) {
-        assert.equal(null, err);
+        //assert.equal(null, err);
         const db = client.db(dbName);
         const collection = db.collection('produtos');
 
