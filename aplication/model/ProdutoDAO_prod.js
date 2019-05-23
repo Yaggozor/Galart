@@ -16,8 +16,8 @@ ProdutoDAO.prototype.inserirProduto = function (produto, res) {
         console.log("teste2");
         collection.insertMany(produto, function (err, result) {
             //assert.equal(err, null);
-            console.log(result);
-            console.log(err);
+            console.log("result: "+result);
+            console.log("err: "+err);
             if(result){
                 console.log("result");
                 //res.render("admin/cadastroProduto", { valid: {}, msg: "Arte cadastrada com sucesso" });
