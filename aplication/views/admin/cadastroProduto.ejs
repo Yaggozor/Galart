@@ -81,7 +81,7 @@
         let photo = document.getElementById("foto-produto").files[0];  // file from input
         let req = new XMLHttpRequest();
         let formData = new FormData();
-
+        console.log(photo);
         console.log(formData);
         formData.append("photo", photo);
         console.log(formData);
