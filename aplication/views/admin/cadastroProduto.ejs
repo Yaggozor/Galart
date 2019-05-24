@@ -34,7 +34,7 @@
                 <img id="foto-thumbnail" class="img-fluid" src="">
             </div>
             <div class="col-sm-8">
-                <form action="/admin/cadastroProduto" method="post">
+                <div>
                     <div class="form-group">
                         <label for="nome-produto">Nome do produto:</label>
                         <input type="text" class="form-control" id="nome-produto" name="nome" />
@@ -70,14 +70,48 @@
                     </div>
 
                     <button id="" class="btn btn-success right" type="submit">Confirmar</button>
-                </form>
+                    <div id="mensagem"></div>
+                </div>
             </div>    
         </div> <!-- end row -->
 
     </section>
 
     <script>
-    $("#foto-produto").on("change", function(){
+    $('#btn-publicar').click(function(){
+        // criando formData
+        var formData = new FormData();
+        
+        var titulo = document.getElementById("nome-produto").value;
+        var tipo = document.getElementById("tipo-produto").value;
+        var arquivo = document.getElementById("foto-produto").files[0];
+        var tamanho = document.getElementById("tamanho-produto").value;
+        var preco = document.getElementById("preco-produto").value;
+        var descricao = document.getElementById("descricao-produto").value;
+        
+        formData.append("nome-produto", titulo);
+        formData.append("tipo-produto", tipo);
+        formData.append("foto-produto", arquivo);
+        formData.append("tamanho-produto", tamanho);
+        formData.append("preco-produto", preco);
+        formData.append("descricao-produto", descricao);
+        
+        console.log(formData);
+        /*// criando XMLHttpRequest
+        var xhr = new XMLHttpRequest();
+        // verificando as mudanças de estado
+        xhr.onreadystatechange = function(){
+            if(xhr.readyState == 4){
+                var resposta = xhr.responseText;
+                document.getElementById("mensagem").innerHTML = resposta;
+            }
+        }
+        // enviando o request para api rest
+        xhr.open("POST", "./aplication/public/imgs");
+        xhr.send(formData);*/
+    });
+
+    /*$("#foto-produto").on("change", function(){
         let photo = document.getElementById("foto-produto").files[0];  // file from input
         let req = new XMLHttpRequest();
         let formData = new FormData();
@@ -92,7 +126,7 @@
         img = img.split("\\");
         console.log(img);
         $("#foto-thumbnail").attr("src", "/imgs/" + img[2]);
-    });
+    });*/
     </script>
 
     <% include ../componentes/footer %>
