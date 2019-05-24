@@ -34,6 +34,6 @@ module.exports.inserindoCliente = (app, req, res) => {
     //var ClienteDAO = new app.aplication.model.ClienteDAO(conexao);
     var ClienteDAO = new app.aplication.model.ClienteDAO_prod();
 
-    ClienteDAO.inserirCliente(formData);
+    ClienteDAO.inserirCliente(formData, res);
 
 }

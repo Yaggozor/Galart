@@ -5,7 +5,7 @@ var crypto = require("crypto");
 
 function ClienteDAO() {}
 
-ClienteDAO.prototype.inserirCliente = function (cliente) {
+ClienteDAO.prototype.inserirCliente = function (cliente, res) {
     const url = process.env.MONGODB_URI;
     const dbName = 'galart';
     const client = new MongoClient(url, { useNewUrlParser: true });
