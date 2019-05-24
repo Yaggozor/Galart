@@ -82,7 +82,9 @@
         let req = new XMLHttpRequest();
         let formData = new FormData();
 
-        formData.append("photo", photo);                                
+        console.log(formData);
+        formData.append("photo", photo);
+        console.log(formData);
         req.open("POST", '/imgs');
         req.send(formData);
 
