@@ -146,7 +146,7 @@ ProdutoDAO.prototype.excluirProduto = function (data, res) {
     });
 }
 
-ProdutoDAO.prototype.addProdutoCarrinho = function (data, res, admin, user) {
+ProdutoDAO.prototype.addProdutoCarrinho = function (data, req, res, user) {
     const url = process.env.MONGODB_URI;
     const dbName = 'galart';
     const client = new MongoClient(url, { useNewUrlParser: true });
