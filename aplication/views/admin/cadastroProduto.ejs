@@ -34,7 +34,7 @@
                 <img id="foto-thumbnail" class="img-fluid" src="">
             </div>
             <div class="col-sm-8">
-                <form enctype="multipart/form-data" action="/admin/cadastroProduto" method="post">
+                <form action="/admin/cadastroProduto" method="post">
                     <div class="form-group">
                         <label for="nome-produto">Nome do produto:</label>
                         <input type="text" class="form-control" id="nome-produto" name="nome" />
@@ -69,7 +69,7 @@
                         <textarea class="form-control" id="descricao-produto" rows="3" name="descricao"></textarea>
                     </div>
 
-                    <button class="btn btn-success right" type="submit">Confirmar</button>
+                    <button id="" class="btn btn-success right" type="submit">Confirmar</button>
                 </form>
             </div>    
         </div> <!-- end row -->
@@ -78,6 +78,14 @@
 
     <script>
     $("#foto-produto").on("change", function(){
+        let photo = document.getElementById("foto-produto").files[0];  // file from input
+        let req = new XMLHttpRequest();
+        let formData = new FormData();
+
+        formData.append("photo", photo);                                
+        req.open("POST", '/imgs');
+        req.send(formData);
+
         var img = $(this).val();
         img = img.split("\\");
         console.log(img);
