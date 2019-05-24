@@ -36,5 +36,4 @@ module.exports.inserindoCliente = (app, req, res) => {
 
     ClienteDAO.inserirCliente(formData);
 
-    res.render("cliente/cadastro", { valid: {}, msg: "Cliente cadastrado com sucesso", user: {} });
 }
