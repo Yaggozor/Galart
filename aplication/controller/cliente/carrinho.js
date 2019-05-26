@@ -39,7 +39,7 @@ module.exports.removeCarrinho = (app, req, res) => {
 
     console.log("FormData itemID: "+typeof(formData.itemID));
 
-    arr = removerPorItemID(arr, formData);
+    req.session.item = removerPorItemID(req.session.item, formData);
 
     console.log(req.session.item);
 
@@ -48,6 +48,8 @@ module.exports.removeCarrinho = (app, req, res) => {
             return el.itemID !== itemID;
         });
     }
+
+    res.redirect("/carrinho");
 }
 
 module.exports.pagamentoBoleto = (app, req, res) => {
