@@ -157,10 +157,11 @@ ProdutoDAO.prototype.addProdutoCarrinho = function (data, req, res, user) {
         const collection = db.collection('produtos');
 
         collection.find({ _id: ObjectID(data._id) }).toArray(function (err, result) {
+            result[0].itemID = req.session.item.length + 1;
             console.log(result[0]);
-            console.log(req.session.item.length);
+            console.log("length antes: "+req.session.item.length);
             req.session.item.push(result[0]);
-            console.log(req.session.item.length);
+            console.log("length depois: "+req.session.item.length);
             res.render("cliente/arteDetalhe", { data: result, user: user, msg: "Item adicionado ao carrinho!" });
         });
 
