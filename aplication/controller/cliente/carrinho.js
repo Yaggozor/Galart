@@ -35,12 +35,9 @@ module.exports.removeCarrinho = (app, req, res) => {
     }
 
     var formData = req.body;
-    var user = req.session.nome;
     var itemID = parseInt(formData.itemID);
 
     req.session.item = removerPorItemID(req.session.item, itemID);
-
-    console.log(req.session.item);
 
     function removerPorItemID(array, itemID) {
         return array.filter(function (el) {
