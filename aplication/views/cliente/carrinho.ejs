@@ -22,7 +22,7 @@
             </div>
             <div class="col-sm-2">
                 <form action="/deletarItem" method="post">
-                    <input type="number" value="<%= itens[i].itemID %>">
+                    <input type="number" id="itemID" name="itemID" value="<%= itens[i].itemID %>">
                     <button type="submit" class="btn btn-trash"><i class="fas fa-trash-alt"></i></button>
                 </form>
             </div>
