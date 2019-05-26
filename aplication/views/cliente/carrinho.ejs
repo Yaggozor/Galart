@@ -17,8 +17,11 @@
             <div class="col-sm-6">
                 <div>Produto #<%= i+1 %>: <%= itens[i].nome %></div>
             </div>
-            <div class="col-sm-6">
-                <div>R$ <%= itens[i].preco %></div>
+            <div class="col-sm-5">
+                <div>R$ <%= itens[i].preco %>,00</div>
+            </div>
+            <div class="col-sm-1">
+                <a class="btn btn-trash" href="/deletarItem"><i class="fas fa-trash-alt"></i></a>
             </div>
         </div>
         <% } %>
