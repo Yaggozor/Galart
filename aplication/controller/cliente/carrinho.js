@@ -37,9 +37,9 @@ module.exports.removeCarrinho = (app, req, res) => {
     var formData = req.body;
     var user = req.session.nome;
 
-    console.log("FormData itemID: "+formData.itemID);
+    console.log("FormData itemID: "+typeof(formData.itemID));
 
-    //arr = removerPorItemID(arr, formData);
+    arr = removerPorItemID(arr, formData);
 
     console.log(req.session.item);
 
