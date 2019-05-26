@@ -17,11 +17,14 @@
             <div class="col-sm-6">
                 <div>Produto #<%= i+1 %>: <%= itens[i].nome %></div>
             </div>
-            <div class="col-sm-5">
+            <div class="col-sm-4">
                 <div>R$ <%= itens[i].preco %>,00</div>
             </div>
-            <div class="col-sm-1">
-                <a class="btn btn-trash" href="/deletarItem"><i class="fas fa-trash-alt"></i></a>
+            <div class="col-sm-2">
+                <form action="/deletarItem" method="post">
+                    <input type="number" value="<%= itens[i].itemID %>">
+                    <button type="submit" class="btn btn-trash"><i class="fas fa-trash-alt"></i></button>
+                </form>
             </div>
         </div>
         <% } %>

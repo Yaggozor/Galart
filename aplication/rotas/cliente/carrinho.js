@@ -8,6 +8,10 @@ module.exports = (app) => {
         app.aplication.controller.cliente.carrinho.addCarrinho(app, req, res);
     })
 
+    app.post("/deletarItem", (req, res) => {
+        app.aplication.controller.cliente.carrinho.removeCarrinho(app, req, res);
+    })
+
     app.post('/pagamentoBoleto', (req, res) => {
         app.aplication.controller.cliente.carrinho.pagamentoBoleto(app, req, res);
     })

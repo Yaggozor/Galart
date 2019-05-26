@@ -28,6 +28,28 @@ module.exports.addCarrinho = (app, req, res) => {
     ProdutoDAO.addProdutoCarrinho(formData, req, res, user);
 }
 
+module.exports.removeCarrinho = (app, req, res) => {
+    if (req.session.authorized !== true) {
+        res.render("componentes/error");
+        return;
+    }
+
+    var formData = req.body;
+    var user = req.session.nome;
+
+    console.log("FormData itemID: "+formData);
+
+    //arr = removerPorItemID(arr, formData);
+
+    console.log(req.sesion.item);
+
+    function removerPorItemID(array, itemID) {
+        return array.filter(function (el) {
+            return el.itemID !== itemID;
+        });
+    }
+}
+
 module.exports.pagamentoBoleto = (app, req, res) => {
     if (req.session.authorized !== true) {
         res.render("componentes/error");
