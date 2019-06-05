@@ -4,7 +4,8 @@
   "description": "Site",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
@@ -19,12 +20,14 @@
   "dependencies": {
     "body-parser": "^1.18.3",
     "consign": "^0.1.6",
+    "cross-env": "^5.2.0",
     "crypto": "^1.0.1",
+    "dotenv": "^8.0.0",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
     "express-session": "^1.15.6",
     "express-validator": "^3.2.1",
-    "mongodb": "^2.2.10",
+    "mongodb": "^3.2.5",
     "node-pagseguro": "^0.1.9",
     "nodemon": "^1.18.10",
     "validar-cpf": "^2.1.0"

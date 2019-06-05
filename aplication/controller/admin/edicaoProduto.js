@@ -7,8 +7,9 @@ module.exports.index = (app, req, res)=>{
     var admin = req.session.nomeadmin;
     var formData = req.body;
 
-    var conexao = app.dbConfig.database;
-    var ProdutoDAO = new app.aplication.model.ProdutoDAO(conexao);
+    //var conexao = app.dbConfig.database;
+    //var ProdutoDAO = new app.aplication.model.ProdutoDAO(conexao);
+    var ProdutoDAO = new app.aplication.model.ProdutoDAO_prod();
 
     ProdutoDAO.mostrarProduto(formData, res, admin);
 
@@ -18,8 +19,9 @@ module.exports.editandoProduto = (app, req, res)=>{
 
     var formData = req.body;
 
-    var conexao = app.dbConfig.database;
-    var ProdutoDAO = new app.aplication.model.ProdutoDAO(conexao);
+    //var conexao = app.dbConfig.database;
+    //var ProdutoDAO = new app.aplication.model.ProdutoDAO(conexao);
+    var ProdutoDAO = new app.aplication.model.ProdutoDAO_prod();
 
     formData.preco = parseFloat(formData.preco);
 

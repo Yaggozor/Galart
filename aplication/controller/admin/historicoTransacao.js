@@ -4,8 +4,9 @@ module.exports.index = (app, req, res) => {
         return;
     }
 
-    var conexao = app.dbConfig.database;
-    var TransacaoDAO = new app.aplication.model.TransacaoDAO(conexao);
+    //var conexao = app.dbConfig.database;
+    //var TransacaoDAO = new app.aplication.model.TransacaoDAO(conexao);
+    var TransacaoDAO = new app.aplication.model.TransacaoDAO_prod();
 
     TransacaoDAO.mostrarTransacao(res);
 

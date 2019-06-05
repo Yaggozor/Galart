@@ -30,10 +30,10 @@ module.exports.inserindoCliente = (app, req, res) => {
         return;
     }
 
-    var conexao = app.dbConfig.database;
-    var ClienteDAO = new app.aplication.model.ClienteDAO(conexao);
+    //var conexao = app.dbConfig.database;
+    //var ClienteDAO = new app.aplication.model.ClienteDAO(conexao);
+    var ClienteDAO = new app.aplication.model.ClienteDAO_prod();
 
-    ClienteDAO.inserirCliente(formData);
+    ClienteDAO.inserirCliente(formData, res);
 
-    res.render("cliente/cadastro", { valid: {}, msg: "Cliente cadastrado com sucesso", user: {} });
 }

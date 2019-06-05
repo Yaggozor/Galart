@@ -31,7 +31,7 @@ body {
 
 /* ====== Splash Screen ====== */
 #splash {
-    position: absolute;
+    position: fixed;
     z-index: 99998;
     background-color: #FDFDFD;
     height: 100%;
@@ -52,6 +52,10 @@ body {
 
 /* ====== Navbar ====== */
 .menu {
+    /*position: fixed !important;
+    width: 100%;
+    z-index: 1;
+    top: 0px;*/
     box-shadow: -1px 8px 15px -1px rgba(0,0,0,0.75);
 }
 .navbar-nav a {

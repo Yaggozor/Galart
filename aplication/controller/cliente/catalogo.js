@@ -1,6 +1,7 @@
 module.exports.index = (app, req, res)=>{
-    var conexao = app.dbConfig.database;
-    var ProdutoDAO = new app.aplication.model.ProdutoDAO(conexao);
+    //var conexao = app.dbConfig.database;
+    //var ProdutoDAO = new app.aplication.model.ProdutoDAO(conexao);
+    var ProdutoDAO = new app.aplication.model.ProdutoDAO_prod();
     
     var admin = null;
     var user = null;
@@ -14,8 +15,9 @@ module.exports.index = (app, req, res)=>{
 }
 
 module.exports.filtrarProduto = (app, req, res) => {
-    var conexao = app.dbConfig.database;
-    var ProdutoDAO = new app.aplication.model.ProdutoDAO(conexao);
+    //var conexao = app.dbConfig.database;
+    //var ProdutoDAO = new app.aplication.model.ProdutoDAO(conexao);
+    var ProdutoDAO = new app.aplication.model.ProdutoDAO_prod();
 
     var admin = null;
     var user = null;
